@@ -46,7 +46,7 @@
     
     <title>
         
-            归档: 2018/10 | 
+            iOS的应该了解的HTTPS | 
         
         通往iOS的不归路上...
     </title>
@@ -84,6 +84,9 @@
         <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?NKhlKQkXw/c66TR5p4wO+w==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
 
         
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?uzCH+O98wFvaNzGXbBAGRQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
             
         
 
@@ -220,7 +223,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="通往iOS的不归路上...">
-    <meta name="msapplication-starturl" content="https://xiaolit.github.io/archives/2018/10/">
+    <meta name="msapplication-starturl" content="https://xiaolit.github.io/2018/07/15/iOS-s-HTTPS/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="通往iOS的不归路上...">
@@ -235,13 +238,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="https://xiaolit.github.io/archives/2018/10/">
+    <meta property="og:url" content="https://xiaolit.github.io/2018/07/15/iOS-s-HTTPS/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="归档: 2018/10 | 通往iOS的不归路上...">
+    <meta property="og:title" content="iOS的应该了解的HTTPS | 通往iOS的不归路上...">
     <meta property="og:image" content="/img/favicon.png">
     <meta property="og:description" content="description">
     
 
+    
+        <meta property="article:published_time" content="Sun Jul 15 2018 00:00:00 GMT+0800">
+        <meta property="article:modified_time" content="Thu Nov 08 2018 11:04:55 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -249,13 +255,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://xiaolit.github.io/archives/2018/10/index.html" />
+        <link rel="canonical" href="https://xiaolit.github.io/2018/07/15/iOS-s-HTTPS/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "https://xiaolit.github.io/2018/07/15/iOS-s-HTTPS/index.html",
+    "headline": "iOS的应该了解的HTTPS",
+    "datePublished": "Sun Jul 15 2018 00:00:00 GMT+0800",
+    "dateModified": "Thu Nov 08 2018 11:04:55 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "xiaoLit",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.png"
+        },
+        "description": "Hi, nice to meet you"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "通往iOS的不归路上...",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": "",
+    "description": "description",
+}
+</script>
 
 
     
@@ -289,93 +325,274 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#HTTPS基础"><span class="post-toc-number">1.</span> <span class="post-toc-text">HTTPS基础</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#HTTPS-请求-和-HTTP-请求的异同"><span class="post-toc-number">1.0.1.</span> <span class="post-toc-text">HTTPS 请求 和 HTTP 请求的异同</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#TLS是什么"><span class="post-toc-number">1.0.2.</span> <span class="post-toc-text">TLS是什么</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#数字证书"><span class="post-toc-number">2.</span> <span class="post-toc-text">数字证书</span></a></li></ol>
+    </ul>
     
 
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/10/09/Material/">使用hexo-theme-material主题的一些心得</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            评论系统
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/10/09/Material/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.png" width="44px" height="44px" alt="xiaoLit's avatar">
-            </div>
-            <div>
-                <strong>xiaoLit</strong>
-                <span>10月 09, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                iOS的应该了解的HTTPS
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>xiaoLit</strong>
+        <span>7月 15, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=iOS的应该了解的HTTPS&url=https://xiaolit.github.io/2018/07/15/iOS-s-HTTPS/index.html&pic=https://xiaolit.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=iOS的应该了解的HTTPS&url=https://xiaolit.github.io/2018/07/15/iOS-s-HTTPS/index.html&via=xiaoLit" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=https://xiaolit.github.io/2018/07/15/iOS-s-HTTPS/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=https://xiaolit.github.io/2018/07/15/iOS-s-HTTPS/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
     
 </div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <pre><code>问题来源：首先为什么要接入HTTPS，对比HTTP有什么好处？
+并不是苹果爸爸要求我们(目前无限期延长)，而是确实有其需要的重要意义.
+</code></pre><h1 id="HTTPS基础"><a href="#HTTPS基础" class="headerlink" title="HTTPS基础"></a>HTTPS基础</h1><p>首先解释一下 HTTPS 这个词。 HTTPS 容易让人误解，以为他是和 HTTP 相似的协议。<br>HTTPS 全称为 HTTP Over TLS。（SSL/TLS 是一系列承前启后的加密协议族，后面统称为 TLS。）</p>
+<h3 id="HTTPS-请求-和-HTTP-请求的异同"><a href="#HTTPS-请求-和-HTTP-请求的异同" class="headerlink" title="HTTPS 请求 和 HTTP 请求的异同"></a>HTTPS 请求 和 HTTP 请求的异同</h3><p>普通 HTTP 请求直接基于 TCP，在互联网上明文传播，而且没有任何校验，链路上的每一个节点都可以对数据包进行篡改，使用手机网络访问 HTTP 网站被插入流量球甚至广告等运营商劫持行为就是最常见的例子。而 HTTPS 请求运行在 TLS 层之上，TLS 运行在 TCP 上，TLS 有独特的握手、建立连接、数据验证机制，让运行商劫持无处下手：只要任何一个数据包被篡改，数据校验就会失败，这个请求会客户端直接抛弃，网页不会显示。当我们用 HTTP 协议来解释 TLS 层携带的内容时，这个东西就被称为 HTTPS 啦。</p>
+<h3 id="TLS是什么"><a href="#TLS是什么" class="headerlink" title="TLS是什么"></a>TLS是什么</h3><p>TLS 中文名称为安全传输层协议，简单的来说就是在客户端与服务端之间建立一个防窃听、防篡改的可信信息传递通道。<br>关于SSL/TSL有位大佬写的非常详细有兴趣的可以深入了解一下。</p>
+<ul>
+<li><a href="http://www.ruanyifeng.com/blog/2014/02/ssl_tls.html" target="_blank" rel="noopener">SSL/TLS协议运行机制的概述</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2014/09/illustration-ssl.html" target="_blank" rel="noopener">图解SSL/TLS协议</a></li>
+</ul>
+<p>简单的来说，SSL/TSL通过四次握手，主要交换三个信息：</p>
+<ol>
+<li><strong>数字证书：</strong>该证书包含了公钥等信息，一般是由服务器发给客户端，接收方通过验证这个证书是不是由信赖的CA签发，或者与本地的证书相对比，来判断证书是否可信；假如需要双向验证，则服务器和客户端都需要发送数字证书给对方验证；</li>
+<li><strong>三个随机数：</strong>这三个随机数构成了后续通信过程中用来对数据进行对称加密解密的“对话密钥”。<br>首先客户端先发第一个随机数N1，然后服务器回了第二个随机数N2（这个过程同时把之前提到的证书发给客户端），这两个随机数都是明文的；而第三个随机数N3（这个随机数被称为Premaster secret），客户端用数字证书的公钥进行非对称加密，发给服务器；而服务器用只有自己知道的私钥来解密，获取第三个随机数。这样，服务端和客户端都有了三个随机数N1+N2+N3，然后两端就使用这三个随机数来生成“对话密钥”，在此之后的通信都是使用这个“对话密钥”来进行对称加密解密。因为这个过程中，服务端的私钥只用来解密第三个随机数，从来没有在网络中传输过，这样的话，只要私钥没有被泄露，那么数据就是安全的。</li>
+<li><strong>加密通信协议</strong>：就是双方商量使用哪一种加密方式，假如两者支持的加密方式不匹配，则无法进行通信；</li>
+</ol>
+<p>有个常见的问题，关于随机数为什么要三个？只最后一个随机数N3不可以么？<br>这是由于SSL/TLS设计，就假设服务器不相信所有的客户端都能够提供完全随机数，假如某个客户端提供的随机数不随机的话，就大大增加了“对话密钥”被破解的风险，所以由三组随机数组成最后的随机数，保证了随机数的随机性，以此来保证每次生成的“对话密钥”安全性。</p>
+<h1 id="数字证书"><a href="#数字证书" class="headerlink" title="数字证书"></a>数字证书</h1><p>//哈哈 看了就是独立可费劲莱克斯顿；积分看来；士大夫</p>
+<pre><code>SecTrustRef trust = challenge.protectionSpace.serverTrust;
+    SecTrustResultType result;
+    SecTrustSetAnchorCertificates(trust, (__bridge CFArrayRef)self.trustedCertificates);
+
+    OSStatus status = SecTrustEvaluate(trust, &amp;result);
+    if (status == errSecSuccess &amp;&amp; (result == kSecTrustResultProceed || result == kSecTrustResultUnspecified)) {
+        NSURLCredential *cred = [NSURLCredential credentialForTrust:trust];
+        if (cred) {
+            completionHandler(NSURLSessionAuthChallengeUseCredential, cred);
+        } else {
+            completionHandler(NSURLSessionAuthChallengeCancelAuthenticationChallenge, nil);
+        }
+    } else {
+        completionHandler(NSURLSessionAuthChallengeCancelAuthenticationChallenge, nil);
+    }
+</code></pre><p>大家应该听说过一个词叫做<a href="https://zh.wikipedia.org/wiki/中间人攻击" target="_blank" rel="noopener">中间人攻击</a>MITM(维基)。在HTTP</p>
+<p><a href="https://lvwenhan.com/autolayout-club/478.html" target="_blank" rel="noopener">写给 iOS 开发者看的 HTTPS 指南 </a></p>
+<p><a href="https://lvwenhan.com/操作系统/489.html" target="_blank" rel="noopener">软件工程师需要了解的网络知识：从铜线到HTTP（五）—— HTTP 和 HTTPS</a></p>
+<p><a href="http://oncenote.com/2014/10/21/Security-1-HTTPS/" target="_blank" rel="noopener">iOS安全系列之一：HTTPS</a></p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 Gitalk -->
+<div id="gitalk-comment">
+    <!-- Gitalk 评论框 -->
+<div id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<script>
+    var gitalk = new Gitalk({
+            clientID: '7d2dc5a9aec4f08ebe84',
+            clientSecret: '385c64bf3364f30a8e3dabedf93e44d5bc9b3803',
+            repo: 'gitalk',
+            owner: 'xiaoLit',
+            admin: ['xiaoLit'],
+            // facebook-like distraction free mode
+            distractionFreeMode: false
+        })
+   gitalk.render('gitalk-container')
+</script>
+</div>
+<style>
+    #gitalk-comment {
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2018/10/09/Material/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     
@@ -682,6 +899,10 @@ It will not impact the appearance and can give developers a lot of support :)
 <!-- Import prettify js  -->
 
     
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?B0X9GxxuqRi5dX/QOnd1Bw==", true)</script>
+        
+    
 
 
 
@@ -694,6 +915,11 @@ It will not impact the appearance and can give developers a lot of support :)
     });
 
     
+        
+            $(function() {
+                    $('pre').addClass('prettyprint').attr('style', 'overflow:auto;');
+                    prettyPrint();
+                })
         
     
     
