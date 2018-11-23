@@ -71,6 +71,29 @@
     </entry>
     
     <entry>
+      <title>Bugly的日常</title>
+      <link href="/2018/07/15/Bugly-s-Daily/"/>
+      <url>/2018/07/15/Bugly-s-Daily/</url>
+      
+        <content type="html"><![CDATA[<h2 id="最好不要看什么其他人写的关于buglg的具体操作，就连符号表的提取看了好多都不如官方文档写的好。"><a href="#最好不要看什么其他人写的关于buglg的具体操作，就连符号表的提取看了好多都不如官方文档写的好。" class="headerlink" title="最好不要看什么其他人写的关于buglg的具体操作，就连符号表的提取看了好多都不如官方文档写的好。"></a>最好不要看什么其他人写的关于buglg的具体操作，就连符号表的提取看了好多都不如<a href="https://bugly.qq.com/docs/user-guide/symbol-configuration-ios/?v=20181014122344" target="_blank" rel="noopener">官方文档</a>写的好。</h2><pre><code>崩溃日志-[CFPrefsSearchListSource alreadylocked_copyDictionary] -[CFPrefsSearchListSource alreadylocked_copyValueForKey:] </code></pre><p>日历获取在9.x之后的系统使用 [NSCalendar currentCalendar] 会出异常。在8.0之后使用系统新API,做个分类用一下代码</p><pre><code>+ (NSCalendar *)Lit_currentCalendar {    if ([NSCalendar respondsToSelector:@selector(calendarWithIdentifier:)]) {        return [NSCalendar calendarWithIdentifier:NSCalendarIdentifierGregorian];    }    return [NSCalendar currentCalendar];}</code></pre><p>–</p><pre><code>崩溃日志libGPUSupportMercury.dylib`gpus_ReturnNotPermittedKillClient</code></pre><p>在分享跳转到微博时候，我的app进入后台，并且依然在进行绘制加载。<br>而苹果规定：如果尝试在后台执行OpenGL ES命令，应用程序将被终止。<br>例如<a href="https://developer.apple.com/library/archive/qa/qa1766/_index.html" target="_blank" rel="noopener">How to fix OpenGL ES application crashes when moving to the background</a></p><p>通过通知来监控app是否进入后台和前台，在进入后台的时候禁止OpenGL，在进入前台后重新加载。</p><pre><code>[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appWillResignActive:) name:UIApplicationWillResignActiveNotification object:nil];[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appDidBecomeActive:) name:UIApplicationDidBecomeActiveNotification object:nil];</code></pre><pre><code>- (void)appWillResignActive:(NSNotification *)notification {    [self.webView stopLoading];}- (void)appDidBecomeActive:(NSNotification *)notification {    [self.webView reload];}</code></pre><pre><code>- (void)dealloc {    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationWillResignActiveNotification object:nil];    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidBecomeActiveNotification object:nil];}</code></pre><p>–</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> iOS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Bug </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>iOS的应该了解的HTTPS</title>
       <link href="/2018/07/15/iOS-s-HTTPS/"/>
       <url>/2018/07/15/iOS-s-HTTPS/</url>
