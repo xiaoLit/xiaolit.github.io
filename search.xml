@@ -58,10 +58,16 @@
       
       <categories>
           
-          <category> 工具 </category>
+          <category> 技术杂文 </category>
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 工具 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -79,6 +85,12 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> Bug </tag>
+            
+        </tags>
       
     </entry>
     
@@ -114,6 +126,12 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 博客 </tag>
+            
+        </tags>
+      
     </entry>
     
     <entry>
@@ -134,6 +152,8 @@
         <tags>
             
             <tag> HTTPS </tag>
+            
+            <tag> 安全 </tag>
             
         </tags>
       
