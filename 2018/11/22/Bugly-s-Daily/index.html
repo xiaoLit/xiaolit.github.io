@@ -249,7 +249,7 @@
 
     
         <meta property="article:published_time" content="Thu Nov 22 2018 00:00:00 GMT+0800">
-        <meta property="article:modified_time" content="Tue Dec 04 2018 10:57:35 GMT+0800">
+        <meta property="article:modified_time" content="Tue Dec 04 2018 15:50:44 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -272,7 +272,7 @@
     "mainEntityOfPage": "https://xiaolit.github.io/2018/11/22/Bugly-s-Daily/index.html",
     "headline": "Bugly的日常",
     "datePublished": "Thu Nov 22 2018 00:00:00 GMT+0800",
-    "dateModified": "Tue Dec 04 2018 10:57:35 GMT+0800",
+    "dateModified": "Tue Dec 04 2018 15:50:44 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "xiaoLit",
@@ -509,10 +509,12 @@
     }
     return [NSCalendar currentCalendar];
 }
-</code></pre><p>–</p>
-<pre><code>崩溃日志
-libGPUSupportMercury.dylib`gpus_ReturnNotPermittedKillClient
-</code></pre><p>在分享跳转到微博时候，我的app进入后台，并且依然在进行绘制加载。<br>而苹果规定：如果尝试在后台执行OpenGL ES命令，应用程序将被终止。<br>例如<a href="https://developer.apple.com/library/archive/qa/qa1766/_index.html" target="_blank" rel="noopener">How to fix OpenGL ES application crashes when moving to the background</a></p>
+</code></pre><hr>
+<blockquote>
+<p>崩溃日志</p>
+<pre><code>libGPUSupportMercury.dylib`gpus_ReturnNotPermittedKillClient
+</code></pre></blockquote>
+<p>UIWebView在app进入后台时，如果没有加载渲染完就仍然在进行绘制加载，绘制<br>而苹果规定：如果尝试在后台执行OpenGL ES命令，应用程序将被终止。<br>例如<a href="https://developer.apple.com/library/archive/qa/qa1766/_index.html" target="_blank" rel="noopener">How to fix OpenGL ES application crashes when moving to the background</a></p>
 <p>通过通知来监控app是否进入后台和前台，在进入后台的时候禁止OpenGL，在进入前台后重新加载。</p>
 <pre><code>[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appWillResignActive:) name:UIApplicationWillResignActiveNotification object:nil];
 [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appDidBecomeActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
@@ -527,7 +529,8 @@ libGPUSupportMercury.dylib`gpus_ReturnNotPermittedKillClient
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationWillResignActiveNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidBecomeActiveNotification object:nil];
 }
-</code></pre><p>–</p>
+</code></pre><p>看到有人说iOS11修复了这个问题，但我用iOS12.1发现此问题仍在。</p>
+<hr>
 
         
     
@@ -686,7 +689,7 @@ libGPUSupportMercury.dylib`gpus_ReturnNotPermittedKillClient
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2018/11/">November 2018<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/10/">October 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/07/">July 2018<span class="sidebar_archives-count">1</span></a>
+                <a class="sidebar_archives-link" href="/archives/2018/12/">December 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/11/">November 2018<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/10/">October 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/07/">July 2018<span class="sidebar_archives-count">1</span></a>
             </ul>
         </li>
         
@@ -704,7 +707,7 @@ libGPUSupportMercury.dylib`gpus_ReturnNotPermittedKillClient
             </a>
             <ul class="dropdown-menu">
                 <li>
-                <a class="sidebar_archives-link" href="/categories/iOS/">iOS<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/categories/技术杂文/">技术杂文<span class="sidebar_archives-count">2</span></a>
+                <a class="sidebar_archives-link" href="/categories/iOS/">iOS<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/categories/技术杂文/">技术杂文<span class="sidebar_archives-count">2</span></a>
             </ul>
         </li>
         

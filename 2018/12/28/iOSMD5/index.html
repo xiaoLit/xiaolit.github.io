@@ -48,6 +48,8 @@
     
     <title>
         
+            iOS中的MD5摘要问题 | 
+        
         通往iOS的不归路上...
     </title>
 
@@ -57,7 +59,7 @@
 
     <meta name="format-detection" content="telephone=no"/>
     <meta name="description" itemprop="description" content="description">
-    <meta name="keywords" content="blog iOS light xiaolit">
+    <meta name="keywords" content="blog iOS light xiaolit,安全,加密">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -84,6 +86,9 @@
         <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?NKhlKQkXw/c66TR5p4wO+w==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
 
         
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?uzCH+O98wFvaNzGXbBAGRQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
             
         
 
@@ -220,7 +225,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="通往iOS的不归路上...">
-    <meta name="msapplication-starturl" content="https://xiaolit.github.io/">
+    <meta name="msapplication-starturl" content="https://xiaolit.github.io/2018/12/28/iOSMD5/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="通往iOS的不归路上...">
@@ -235,13 +240,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="https://xiaolit.github.io/">
+    <meta property="og:url" content="https://xiaolit.github.io/2018/12/28/iOSMD5/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="通往iOS的不归路上...">
+    <meta property="og:title" content="iOS中的MD5摘要问题 | 通往iOS的不归路上...">
     <meta property="og:image" content="/img/favicon.png">
     <meta property="og:description" content="description">
-    
+    <meta property="og:article:tag" content="安全"> <meta property="og:article:tag" content="加密"> 
 
+    
+        <meta property="article:published_time" content="Fri Dec 28 2018 00:00:00 GMT+0800">
+        <meta property="article:modified_time" content="Sat Dec 29 2018 16:06:01 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -249,35 +257,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://xiaolit.github.io" />
+        <link rel="canonical" href="https://xiaolit.github.io/2018/12/28/iOSMD5/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
+
+
 <script type="application/ld+json">
 {
-    "@context": "http://schema.org",
-    "@type": "Website",
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "https://xiaolit.github.io/2018/12/28/iOSMD5/index.html",
+    "headline": "iOS中的MD5摘要问题",
+    "datePublished": "Fri Dec 28 2018 00:00:00 GMT+0800",
+    "dateModified": "Sat Dec 29 2018 16:06:01 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "xiaoLit",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.jpeg"
+        },
+        "description": ""
+    },
     "publisher": {
         "@type": "Organization",
         "name": "通往iOS的不归路上...",
-        "logo": "/img/favicon.png"
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
     },
-    "url": "https://xiaolit.github.io",
-    "image": {
-        "@type": "ImageObject",
-        "url": "/img/favicon.png"
-    },
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://xiaolit.github.io"
-    },
-    "description": "description"
+    "keywords": ",安全,加密blog iOS light xiaolit",
+    "description": "description",
 }
 </script>
-
-
 
 
     
@@ -311,667 +327,355 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
+                    <!-- Post TOC -->
+
     
-        <!-- Paradox Header -->
-        <!-- Daily pic -->
-<div class="mdl-card mdl-shadow--2dp daily-pic mdl-cell mdl-cell--8-col index-top-block">
-
-    <!-- Pic & Slogan -->
-    <div class="mdl-card__media mdl-color-text--grey-50" style="background-image:url(/img/daily_pic.jpg)">
-        <p class="index-top-block-slogan"><a href="">
-        
-        </a></p>
-    </div>
-
-    <!-- Avatar & Name -->
-    <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
-        <!-- Author Avatar -->
-        <div id="author-avatar">
-            <img src="/img/avatar.jpeg" width="32px" height="32px" alt="avatar">
-        </div>
-        <div>
-            <strong>xiaoLit</strong>
-        </div>
-    </div>
-</div>
-
-        <!-- Blog info -->
-<div class="mdl-card mdl-shadow--2dp something-else mdl-cell mdl-cell--8-col mdl-cell--4-col-desktop index-top-block">
-
-    <!-- Search -->
-    
-
-
-
-
-    <!-- Local -->
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable" method="post" action="">
-        <label id="search-label" class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--fab mdl-color--accent mdl-shadow--4dp" for="search">
-            <i class="material-icons mdl-color-text--white" role="presentation">search</i>
-        </label>
-
-        <form autocomplete="off" id="search-form" class="mdl-textfield__expandable-holder">
-            <input type="text" id="search" class="form-control mdl-textfield__input search-input" name="q" results="0" placeholder=""/>
-            <label id="search-form-label" class="mdl-textfield__label" for="search"></label>
-        </form>
-    </div>
-    <div id="local-search-result"></div>
-
-
-
-    <!-- LOGO -->
-    <div class="something-else-logo mdl-color--white mdl-color-text--grey-600">
-        <a href="#" target="_blank">
-            <img src="/img/favicon.png" alt="logo" />
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
         </a>
     </div>
+    -->
 
-    <!-- Infomation -->
-    <div class="mdl-card__supporting-text meta meta--fill mdl-color-text--grey-600">
-        <!-- Blog Title -->
-        <div>
-            <strong>通往iOS的不归路上...</strong>
-        </div>
-        <div class="section-spacer"></div>
 
-        <!-- Pages -->
-        <button id="show-pages-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-            <i class="material-icons" role="presentation">view_carousel</i>
-            <span class="visuallyhidden">Pages</span>
-        </button>
-        <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="show-pages-button">
-            
-                <a class="index_share-link" href="/tags" title="Tags">
-                    <li class="mdl-menu__item mdl-js-ripple-effect">
-                        Tags
-                    </li>
-                </a>
-            
-                <a class="index_share-link" href="/timeline" title="Timeline">
-                    <li class="mdl-menu__item mdl-js-ripple-effect">
-                        Timeline
-                    </li>
-                </a>
-            
-                <a class="index_share-link" href="/links/" title="Links">
-                    <li class="mdl-menu__item mdl-js-ripple-effect">
-                        Links
-                    </li>
-                </a>
-            
-        </ul>
-
-        <!-- Menu -->
-        <button id="menubtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-            <i class="material-icons" role="presentation">more_vert</i>
-            <span class="visuallyhidden">show menu</span>
-        </button>
-        <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="menubtn">
-            
-                <!-- All Site UV -->
-                <a class="index_share-link" href="#">
-                    <li class="mdl-menu__item mdl-js-ripple-effect">
-                        <span id="busuanzi_container_site_uv">
-                            <span id="busuanzi_value_site_uv"></span>&nbsp;Views
-                        </span>
-                    </li>
-                </a>
-            
-
-            
-
-            
-                <a class="index_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=通往iOS的不归路上...&url=https://xiaolit.github.io&pic=https://xiaolit.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
-                    <li class="mdl-menu__item mdl-js-ripple-effect">
-                        Share to Weibo
-                    </li>
-                </a>
-            
-
-            
-
-            
-
-            
-
-            
-
-            
-                <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=通往iOS的不归路上...&title=通往iOS的不归路上...&summary=description&pics=https://xiaolit.github.io/img/favicon.png&url=https://xiaolit.github.io" target="_blank">
-                    <li class="mdl-menu__item">
-                        Share to QQ
-                    </li>
-                </a>
-            
-
-            
-        </ul>
-    </div>
-</div>
-
+    <!-- Left aligned menu below button -->
     
-    <div class="locate-thumbnail-symbol"></div>
-
-    <!-- Pin on top -->
     
-        
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#分析问题"><span class="post-toc-number">1.</span> <span class="post-toc-text">分析问题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#先看NSString的MD5方法"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">先看NSString的MD5方法</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#再看NSData的MD5方法"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">再看NSData的MD5方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#并不是完美的解决方法"><span class="post-toc-number">2.</span> <span class="post-toc-text">并不是完美的解决方法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#验证方法"><span class="post-toc-number">3.</span> <span class="post-toc-text">验证方法</span></a></li></ol>
+    </ul>
     
 
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/12/28/iOSMD5/">iOS中的MD5摘要问题</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            由汉字和 \0 引发的问题
-
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/12/28/iOSMD5/" target="_self">Read more</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.jpeg" width="44px" height="44px" alt="xiaoLit's avatar">
-            </div>
-            <div>
-                <strong>xiaoLit</strong>
-                <span>Dec 28, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/iOS/">iOS</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/11/29/InjectionIII/">InjectionIII xcode10更新</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/11/29/InjectionIII/" target="_self">Read more</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.jpeg" width="44px" height="44px" alt="xiaoLit's avatar">
-            </div>
-            <div>
-                <strong>xiaoLit</strong>
-                <span>Nov 29, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/iOS/">iOS</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/11/22/Bugly-s-Daily/">Bugly的日常</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/11/22/Bugly-s-Daily/" target="_self">Read more</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.jpeg" width="44px" height="44px" alt="xiaoLit's avatar">
-            </div>
-            <div>
-                <strong>xiaoLit</strong>
-                <span>Nov 22, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/iOS/">iOS</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/11/21/MAC-AND-GFW/">MAC翻越某知名墙体</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/11/21/MAC-AND-GFW/" target="_self">Read more</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.jpeg" width="44px" height="44px" alt="xiaoLit's avatar">
-            </div>
-            <div>
-                <strong>xiaoLit</strong>
-                <span>Nov 21, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/技术杂文/">技术杂文</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/11/14/Xcode10-And-Libstdc/">Xcode10删除的libstdc++</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            众所周知Xcode10中删除的libstdc++库，并且手动导入的话每一次Xcode10升级会自动再次删除。需要再次手动导入。所以找个简单点的方法，...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/11/14/Xcode10-And-Libstdc/" target="_self">Read more</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.jpeg" width="44px" height="44px" alt="xiaoLit's avatar">
-            </div>
-            <div>
-                <strong>xiaoLit</strong>
-                <span>Nov 14, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/iOS/">iOS</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/11/08/iOS-Screen-Shot/">iOS截屏和控件截取</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/11/08/iOS-Screen-Shot/" target="_self">Read more</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.jpeg" width="44px" height="44px" alt="xiaoLit's avatar">
-            </div>
-            <div>
-                <strong>xiaoLit</strong>
-                <span>Nov 08, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/iOS/">iOS</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/10/09/Material/">HEXO+GitHub搭建博客的一些心得</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/10/09/Material/" target="_self">Read more</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.jpeg" width="44px" height="44px" alt="xiaoLit's avatar">
-            </div>
-            <div>
-                <strong>xiaoLit</strong>
-                <span>Oct 09, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/技术杂文/">技术杂文</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/07/15/iOS-s-HTTPS/">iOS的应该了解的HTTPS</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            问题来源：首先为什么要接入HTTPS，对比HTTP有什么好处？
-并不是苹果爸爸要求我们(目前无限期延长)，而是确实有其需要的重要意义...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/07/15/iOS-s-HTTPS/" target="_self">Read more</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.jpeg" width="44px" height="44px" alt="xiaoLit's avatar">
-            </div>
-            <div>
-                <strong>xiaoLit</strong>
-                <span>Jul 15, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/iOS/">iOS</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                iOS中的MD5摘要问题
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.jpeg" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>xiaoLit</strong>
+        <span>Dec 28, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/加密/">加密</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/安全/">安全</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+        
+            <!-- Busuanzi Views -->
+            <a class="post_share-link" href="#">
+                <li class="mdl-menu__item">
+                    <span id="busuanzi_container_page_pv">
+                        <span id="busuanzi_value_page_pv"></span>&nbsp;Views
+                    </span>
+                </li>
+            </a>
+        
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=iOS中的MD5摘要问题&url=https://xiaolit.github.io/2018/12/28/iOSMD5/index.html&pic=https://xiaolit.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Weibo
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=通往iOS的不归路上...&title=iOS中的MD5摘要问题&summary=description&pics=https://xiaolit.github.io/img/favicon.png&url=https://xiaolit.github.io/2018/12/28/iOSMD5/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                Share to QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
     
 </div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p><strong>由汉字和 \0 引发的问题</strong></p>
+<h4 id="分析问题"><a href="#分析问题" class="headerlink" title="分析问题"></a>分析问题</h4><p>首先我们通常使用的MD5加密一般是iOS提供的方法。<br><code>extern unsigned char *CC_MD5(const void *data, CC_LONG len, unsigned char *md)</code><br>对于字符串使用如下</p>
+<pre><code>- (NSString *)md5String {
+    const char *str = [(NSString *)self UTF8String];
+
+    unsigned char result[CC_MD5_DIGEST_LENGTH] = {0};
+    CC_MD5(str, (CC_LONG)strlen(str), result);
+
+    NSMutableString *ret = [NSMutableString string];
+
+    for (int i = 0; i &lt; CC_MD5_DIGEST_LENGTH; i++) {
+        [ret appendFormat:@&quot;%02x&quot;, result[i]];
+    }
+    return ret;
+}
+@end
+</code></pre><p>对于NSData使用如下</p>
+<pre><code>- (NSString *)md5String {
+    const char *str = [self bytes];
+    unsigned char result[CC_MD5_DIGEST_LENGTH];
+    CC_MD5(str, (CC_LONG)self.length, result);
+
+    NSMutableString *hash = [NSMutableString string];
+    for (int i = 0; i &lt; CC_MD5_DIGEST_LENGTH; i++) {
+        [hash appendFormat:@&quot;%02X&quot;, result[i]];
+    }
+    return [hash lowercaseString];
+}
+</code></pre><h5 id="先看NSString的MD5方法"><a href="#先看NSString的MD5方法" class="headerlink" title="先看NSString的MD5方法"></a>先看NSString的MD5方法</h5><p>对于<code>NSString</code>在使用<code>CC_MD5</code>函数的时候，传入的参数是<code>strlen(str)</code>，对于<code>NSData</code>传入的参数是<code>self.length</code>，一个使用了<code>C</code>的方法，一个使用了<code>Objective-C</code>的方法。</p>
+<p>由于<code>CC_MD5</code>是一个<code>C</code>的函数，但是在使用<code>NSString</code>的时候，<code>NSString</code>的<code>length</code>函数对字符转义进行过了处理，对于普通的字符并没有太大的区别，但是遇到中文的时候就要会出现问题。</p>
+<pre><code>NSString *test = @&quot;我&quot;;
+NSLog(@&quot;%lu&quot;,(unsigned long)test.length);
+
+const char *cTest = [test UTF8String];
+NSLog(@&quot;%lu&quot;,strlen(cTest));
+</code></pre><p>前者输出了 1 后者输出了 3， 这其实是很正常的现象，因为一个中文占了3个字节，苹果对<code>length</code>进行了处理，所以，在使用<code>length</code>的时候，你获取到的汉字的长度是1，让我们在看看这个例子:</p>
+<pre><code>NSLog(@&quot;%c&quot;,[test characterAtIndex:0]);
+NSLog(@&quot;%@&quot;,[test substringWithRange:NSMakeRange(0, 1)]);
+</code></pre><p>前者输入了乱码，后者输出了汉字“我”<br>相信很多人也都踩过这个坑，苹果文档中还特意声明<br><code>Use with rangeOfComposedCharacterSequencesForRange: to avoid breaking up character sequences</code>使用这个方法可以避免字符串被中间切断。</p>
+<p><strong>在使用<code>NSString</code>的时候，因为<code>CC_MD5</code>是一个C函数,如果使用<code>NSString</code>提供的<code>length</code>函数被处理过后，汉字或者一些其他鬼字符的长度和<code>strlen</code>计算出来的不一样了，于是导致了这样一个隐藏问题。</strong><br>长度的编码问题可以简单<a href="https://blog.csdn.net/yaomingyang/article/details/79374209" target="_blank" rel="noopener">看下这个</a></p>
+<h5 id="再看NSData的MD5方法"><a href="#再看NSData的MD5方法" class="headerlink" title="再看NSData的MD5方法"></a>再看NSData的MD5方法</h5><p>在 NSData 中，我们计算 CC_MD5 的时候，传入的长度是 self.length，而不再是 strlen() 计算出来的, 让我们看看下面的例子：</p>
+<pre><code>NSString *test = @&quot;aaa\0bbb&quot;;
+NSLog(@&quot;%lu&quot;,(unsigned long)test.length);
+
+const char *cTest = [test UTF8String];
+NSLog(@&quot;%lu&quot;,strlen(cTest));
+</code></pre><p>前者输出了7 后者只输出了3，原因是<code>char</code>的数组在遇到’\0’的时候，认为这个字符串已经结束了，因此 将不在对<code>bbb</code>做处理了,而用<code>strlen</code>计算出来的长度只有3了。到这里 你甚至可能会和我一样疑惑，按照这样的说法，上述用<code>NSString</code>传入计算<code>MD5</code>的长度正确吗？我只能说 幸运的是在正常的<code>NSString</code>中我们不会出现<code>&#39;\0&#39;</code>这样的变态字符，除非是你自己刻意去拼出一个这样的字符.<br>但是对于<code>NSData</code>来说，会用<code>NSData</code>去计算<code>MD5</code>通常是通过文件或者音频、图片等转化过来的，因此，在<code>data</code>中什么都有可能出现，如果我没有记错的话,字符<code>&#39;\0&#39;</code>被转化成二进制应该是<code>0000 00000</code>之类的东西，如果你的<code>NSData</code>是通过压缩或者其他方式得到的,就很有可能出现一个这样的二进制<code>.....0000.....</code>(意思就是 二进制的一串中包含了一些特殊的字符,相当于转化成<code>String</code>被识别成了<code>&#39;\0&#39;</code>)，于是你再用<code>strlen</code>计算，就只会计算<code>.....0000</code>这么多了，后面的就完全忽略了，于是 这样一个潜在的<code>bug</code>就出现了。 举个例子来说：我们分别利用<code>NSString</code>和将 <code>String</code> 转化为 <code>NSData</code> 的字符串@<code>&#39;aaa&#39;</code>去计算各自的<code>MD5</code>。</p>
+<pre><code>NSString *test = @&quot;aaa&quot;;
+NSLog(@&quot;%@&quot;,[test md5StringStr]);
+NSData *data = [test dataUsingEncoding:NSUTF8StringEncoding];
+NSLog(@&quot;%@&quot;,[data md5String]);
+</code></pre><p>计算出来的结果一样 都是 47bce5c74f589f4867dbd57e9ca9f808 </p>
+<p>但是 当我们把字符串改成<code>@&quot;aaa\0bbb&quot;</code> (‘\0’)起到了决定性的因素</p>
+<pre><code>NSString *test = @&quot;aaa\0bbb&quot;;
+</code></pre><p>在看看结果<code>NSString</code>算出来的是 47bce5c74f589f4867dbd57e9ca9f808(和上面的一样), 但是<code>NSData</code>算出来的是 ea21d344ad21e7cc63e5d4480f76dc83。<br>由此可知<code>NSString`</code>MD5<code>方法是不足以应付这种情况的，但是</code>NSData`这种就真的对吗？</p>
+<h4 id="并不是完美的解决方法"><a href="#并不是完美的解决方法" class="headerlink" title="并不是完美的解决方法"></a>并不是完美的解决方法</h4><p>筛选了大部分方案，举一个有代表性的也是绝大部分都是这样处理的，就是将<code>NSString</code>转成<code>NSData</code>再<code>MD5</code>。<br>本文引用并验证了<a href="https://scotty-ke.github.io/2017/09/21/MD5加密的两个方法区别/" target="_blank" rel="noopener">这里的解决方法</a>和<a href="http://qiufeng.me/md5" target="_blank" rel="noopener">这个</a>，以及1000Star的<a href="https://github.com/kelp404/CocoaSecurity" target="_blank" rel="noopener">CocoaSecurity</a>都是有问题的。</p>
+<pre><code>#import &quot;NSData+Md5.h&quot;
+#import &lt;CommonCrypto/CommonCrypto.h&gt;
+
+@implementation NSData (Md5)
+
+- (NSString *)md5String {
+    const char *str = [self bytes]; //此处打断点 
+    unsigned char result[CC_MD5_DIGEST_LENGTH];
+    CC_MD5(str, (CC_LONG)self.length, result);
+
+    NSMutableString *hash = [NSMutableString string];
+    for (int i = 0; i &lt; CC_MD5_DIGEST_LENGTH; i++) {
+        [hash appendFormat:@&quot;%02X&quot;, result[i]];
+    }
+    return [hash lowercaseString];
+}
+@end
+
+//NSString 的 MD5 转化为 NSData,通过 NSData 的 MD5 计算返回结果
+
+#import &quot;NSString+Md5.h&quot;
+#import &quot;NSData+Md5.h&quot;
+
+@implementation NSString (Md5)
+
+- (NSString *)md5String {
+    NSData *data = [self dataUsingEncoding:NSUTF8StringEncoding];
+    return [data md5String];
+}
+@end
+</code></pre><p>调用<code>NSData</code>MD5时候可以在断点处发现：<br><code>const char *str = [self bytes];</code>这个str也遵循了char的特性，也就是说当<br><code>NSString *test = @&quot;aaa\0bbb&quot;;</code>在转成char的时候只会拿到<code>&#39;aaa&#39;</code>，虽然在上一个例子中两个MD5后的结果不一样，那不过是获取长度不一样了而已，<strong>仍然是有问题的</strong>。</p>
+<h4 id="验证方法"><a href="#验证方法" class="headerlink" title="验证方法"></a>验证方法</h4><p>利用MAC终端</p>
+<pre><code>echo -n &quot;aaa\0bbb&quot; |md5sum
+ea21d344ad21e7cc63e5d4480f76dc83
+</code></pre><pre><code>echo -n &quot;aaa\0bbb&quot; | md5
+ea21d344ad21e7cc63e5d4480f76dc83
+</code></pre><p>很奇怪的和<code>NSData</code>相同，或许机制是一样的，存在某种问题，因为方法调用后内部做了什么转码等操作不得而知。<br>但是<code>aaa\0bbb</code>将此放到任意的(Google前两页的结果)MD5网站和3000Star的<a href="https://github.com/blueimp/JavaScript-MD5" target="_blank" rel="noopener">JavaScript-MD5</a>也是相同的这个结果<code>bbb28c3687f7dee991f638bbad6ef747</code>。<br>目前得到的信息只能推论出避免出现’\0’这种异常的字符，其他情况上述解决方式可以应对。</p>
+<hr>
+<p>题外话一：<br>有人说<code>md5sum</code>，<code>md5</code>区别在于<code>md5</code>不会默认识别’\0’和换行，我验证了一下发现并不是。</p>
+<pre><code>➜  ~ echo  &quot;aaa\0bbb&quot; | md5sum
+5edba15569e2da1e986f3933cbe0f271
+</code></pre><pre><code>➜  ~ echo  -n &quot;aaa\0bbb&quot; | md5
+ea21d344ad21e7cc63e5d4480f76dc83
+</code></pre><pre><code>➜  ~ echo  &quot;aaa\0bbb&quot; | md5
+5edba15569e2da1e986f3933cbe0f271
+</code></pre><pre><code>➜  ~ echo  -n &quot;aaa\0bbb&quot; | md5sum
+ea21d344ad21e7cc63e5d4480f76dc83
+</code></pre><p>题外话二</p>
+<pre><code>NSString *test = @&quot;aaa\0123&quot;;
+</code></pre><p>NSData计算出来的结果一样都是 <code>e2382c7f3e1ddc2afc53d0857a9d7572</code><br>控制台输出的是<code>448325f9203a4adbf5e7152fa6b66ad0</code><br>网页输出的是<code>03a5080b1ed003e0e21da9b8b225f099</code><br>还是不太了解什么情况。</p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 Gitalk -->
+<div id="gitalk-comment">
+    <!-- Gitalk 评论框 -->
+<div id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<script>
+    var gitalk = new Gitalk({
+            clientID: '7d2dc5a9aec4f08ebe84',
+            clientSecret: '385c64bf3364f30a8e3dabedf93e44d5bc9b3803',
+            repo: 'gitalk',
+            owner: 'xiaoLit',
+            admin: ['xiaoLit'],
+            // facebook-like distraction free mode
+            distractionFreeMode: false,
+            id: 'iOS中的MD5摘要问题'
+        })
+   gitalk.render('gitalk-container')
+</script>
+
+
+</div>
+<style>
+    #gitalk-comment {
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/11/29/InjectionIII/" id="post_nav-older" class="next-content">
+            Older
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     
@@ -1302,31 +1006,6 @@ It will not impact the appearance and can give developers a lot of support :)
 
 
 
-    <!-- Swiftye -->
-    
-
-    <!-- Local Search-->
-    
-        <script type="text/ls-javascript" id="search-local-js-script">
-    var searchFunc=function(c,a,b){$.ajax({url:c,dataType:"xml",success:function(e){var d=$("entry",e).map(function(){return{title:$("title",this).text(),content:$("content",this).text(),url:$("url",this).text()}}).get();var g=document.getElementById(a);var f=document.getElementById(b);g.addEventListener("input",function(){var i='<ul class="search-result-list">';var h=this.value.trim().toLowerCase().split(/[\s\-]+/);f.innerHTML="";if(this.value.trim().length<=0){return}d.forEach(function(o){var n=true;var s=[];var t=o.title.trim().toLowerCase();var m=o.content.trim().replace(/<[^>]+>/g,"").toLowerCase();var j=o.url;var u=-1;var q=-1;var p=-1;if(t!==""&&m!==""){h.forEach(function(w,x){u=t.indexOf(w);q=m.indexOf(w);if(u<0&&q<0){n=false}else{if(q<0){q=0}if(x===0){p=q}}})}if(n){i+='<li><a href="'+j+'" class="search-result-title" target="_blank">'+t;var r=o.content.trim().replace(/<[^>]+>/g,"");if(p>=0){var k=p-6;var l=p+6;if(k<0){k=0}if(k===0){l=10}if(l>r.length){l=r.length}var v=r.substr(k,l);h.forEach(function(w){var x=new RegExp(w,"gi");v=v.replace(x,'<em class="search-keyword">'+w+"</em>")});i+='<p class="search-result">'+v+"...</p></a>"}}});f.innerHTML=i})}})};
-</script>
-
-
-        <script type="text/ls-javascript" id="search-input-script">
-            var inputArea = document.querySelector('#search');
-            var getSearchFile = function() {
-                var path = 'search.xml';
-                searchFunc(path, 'search', 'local-search-result');
-            }
-
-            if(inputArea) {
-                inputArea.onfocus = function() {
-                    getSearchFile();
-                }
-            }
-        </script>
-    
-
 
 <!-- UC Browser Compatible -->
 <script>
@@ -1340,6 +1019,10 @@ It will not impact the appearance and can give developers a lot of support :)
 <!-- Import prettify js  -->
 
     
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?B0X9GxxuqRi5dX/QOnd1Bw==", true)</script>
+        
+    
 
 
 
@@ -1352,6 +1035,11 @@ It will not impact the appearance and can give developers a lot of support :)
     });
 
     
+        
+            $(function() {
+                    $('pre').addClass('prettyprint').attr('style', 'overflow:auto;');
+                    prettyPrint();
+                })
         
     
     
