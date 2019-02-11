@@ -48,7 +48,7 @@
     
     <title>
         
-            Archives: 2018 | 
+            HTTPS的证书X.509 | 
         
         通往iOS的不归路上...
     </title>
@@ -59,7 +59,7 @@
 
     <meta name="format-detection" content="telephone=no"/>
     <meta name="description" itemprop="description" content="description">
-    <meta name="keywords" content="blog iOS light xiaolit">
+    <meta name="keywords" content="blog iOS light xiaolit,安全,加密">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -86,6 +86,9 @@
         <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?NKhlKQkXw/c66TR5p4wO+w==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
 
         
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?1leglCxKwB08CeeCwFGfUw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
             
         
 
@@ -222,7 +225,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="通往iOS的不归路上...">
-    <meta name="msapplication-starturl" content="https://xiaolit.github.io/archives/2018/">
+    <meta name="msapplication-starturl" content="https://xiaolit.github.io/2019/02/01/X-509certificate/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="通往iOS的不归路上...">
@@ -237,13 +240,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="https://xiaolit.github.io/archives/2018/">
+    <meta property="og:url" content="https://xiaolit.github.io/2019/02/01/X-509certificate/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Archives: 2018 | 通往iOS的不归路上...">
+    <meta property="og:title" content="HTTPS的证书X.509 | 通往iOS的不归路上...">
     <meta property="og:image" content="/img/favicon.png">
     <meta property="og:description" content="description">
-    
+    <meta property="og:article:tag" content="安全"> <meta property="og:article:tag" content="加密"> 
 
+    
+        <meta property="article:published_time" content="Fri Feb 01 2019 00:00:00 GMT+0800">
+        <meta property="article:modified_time" content="Mon Feb 11 2019 12:15:48 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -251,13 +257,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://xiaolit.github.io/archives/2018/index.html" />
+        <link rel="canonical" href="https://xiaolit.github.io/2019/02/01/X-509certificate/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "https://xiaolit.github.io/2019/02/01/X-509certificate/index.html",
+    "headline": "HTTPS的证书X.509",
+    "datePublished": "Fri Feb 01 2019 00:00:00 GMT+0800",
+    "dateModified": "Mon Feb 11 2019 12:15:48 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "xiaoLit",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.jpeg"
+        },
+        "description": ""
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "通往iOS的不归路上...",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",安全,加密blog iOS light xiaolit",
+    "description": "description",
+}
+</script>
 
 
     
@@ -291,531 +327,301 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
     
-        
-            
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数字证书"><span class="post-toc-number">1.</span> <span class="post-toc-text">数字证书</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#证书是什么"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">证书是什么</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#证书的来源-签名过程"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">证书的来源-签名过程</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#证书格式"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">证书格式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#编码格式"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">编码格式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#相关的文件扩展名"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">相关的文件扩展名</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#转换证书编码格式"><span class="post-toc-number">1.3.3.</span> <span class="post-toc-text">转换证书编码格式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#组合证书"><span class="post-toc-number">1.3.4.</span> <span class="post-toc-text">组合证书</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#获得证书"><span class="post-toc-number">1.3.5.</span> <span class="post-toc-text">获得证书</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#HTTPS中的验证"><span class="post-toc-number">1.3.6.</span> <span class="post-toc-text">HTTPS中的验证</span></a></li></ol></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
                 
-                    <!-- Paradox Thumbnail -->
-                    <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+    <!-- Paradox Post Header -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/07/15/iOS-s-HTTPS/"><span>[Top]</span>iOS的应该了解的HTTPS</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-问题来源：首先为什么要接入HTTPS，对比HTTP有什么好处？并不是苹果爸爸要求我们(目前无限期延长)，而是确实有...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/07/15/iOS-s-HTTPS/" target="_self">Read more</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.jpeg" width="44px" height="44px" alt="xiaoLit's avatar">
-            </div>
-            <div>
-                <strong>xiaoLit</strong>
-                <span>Jul 15, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/iOS/">iOS</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-                
-                
-            
-        
-    
-
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/12/28/iOSMD5/">iOS中的MD5摘要问题</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            由汉字和 \0 引发的问题
-
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/12/28/iOSMD5/" target="_self">Read more</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.jpeg" width="44px" height="44px" alt="xiaoLit's avatar">
-            </div>
-            <div>
-                <strong>xiaoLit</strong>
-                <span>Dec 28, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/iOS/">iOS</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/11/29/InjectionIII/">InjectionIII xcode10更新</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/11/29/InjectionIII/" target="_self">Read more</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.jpeg" width="44px" height="44px" alt="xiaoLit's avatar">
-            </div>
-            <div>
-                <strong>xiaoLit</strong>
-                <span>Nov 29, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/iOS/">iOS</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/11/22/Bugly-s-Daily/">Bugly的日常</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/11/22/Bugly-s-Daily/" target="_self">Read more</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.jpeg" width="44px" height="44px" alt="xiaoLit's avatar">
-            </div>
-            <div>
-                <strong>xiaoLit</strong>
-                <span>Nov 22, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/iOS/">iOS</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/11/21/MAC-AND-GFW/">MAC翻越某知名墙体</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/11/21/MAC-AND-GFW/" target="_self">Read more</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.jpeg" width="44px" height="44px" alt="xiaoLit's avatar">
-            </div>
-            <div>
-                <strong>xiaoLit</strong>
-                <span>Nov 21, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/技术杂文/">技术杂文</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/11/14/Xcode10-And-Libstdc/">Xcode10删除的libstdc++</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            众所周知Xcode10中删除的libstdc++库，并且手动导入的话每一次Xcode10升级会自动再次删除。需要再次手动导入。所以找个简单点的方法，...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/11/14/Xcode10-And-Libstdc/" target="_self">Read more</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.jpeg" width="44px" height="44px" alt="xiaoLit's avatar">
-            </div>
-            <div>
-                <strong>xiaoLit</strong>
-                <span>Nov 14, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/iOS/">iOS</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/11/08/iOS-Screen-Shot/">iOS截屏和控件截取</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/11/08/iOS-Screen-Shot/" target="_self">Read more</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.jpeg" width="44px" height="44px" alt="xiaoLit's avatar">
-            </div>
-            <div>
-                <strong>xiaoLit</strong>
-                <span>Nov 08, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/iOS/">iOS</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/10/09/Material/">HEXO+GitHub搭建博客的一些心得</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/10/09/Material/" target="_self">Read more</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/avatar.jpeg" width="44px" height="44px" alt="xiaoLit's avatar">
-            </div>
-            <div>
-                <strong>xiaoLit</strong>
-                <span>Oct 09, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/技术杂文/">技术杂文</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-    
-
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                HTTPS的证书X.509
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.jpeg" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>xiaoLit</strong>
+        <span>Feb 01, 2019</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/加密/">加密</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/安全/">安全</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+        
+            <!-- Busuanzi Views -->
+            <a class="post_share-link" href="#">
+                <li class="mdl-menu__item">
+                    <span id="busuanzi_container_page_pv">
+                        <span id="busuanzi_value_page_pv"></span>&nbsp;Views
+                    </span>
+                </li>
+            </a>
+        
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=HTTPS的证书X.509&url=https://xiaolit.github.io/2019/02/01/X-509certificate/index.html&pic=https://xiaolit.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Weibo
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+
+    <!-- Share Facebook -->
+    
+
+    <!-- Share Google+ -->
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=通往iOS的不归路上...&title=HTTPS的证书X.509&summary=description&pics=https://xiaolit.github.io/img/favicon.png&url=https://xiaolit.github.io/2019/02/01/X-509certificate/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                Share to QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
     
 </div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h2 id="数字证书"><a href="#数字证书" class="headerlink" title="数字证书"></a>数字证书</h2><p><code>HTTPS</code>中使用的证书<code>X.509</code>提到的数字证书其实包含很多东西，那么下面我们具体来看一下。</p>
+<h3 id="证书是什么"><a href="#证书是什么" class="headerlink" title="证书是什么"></a>证书是什么</h3><p><a href="https://zh.wikipedia.org/wiki/X.509" target="_blank" rel="noopener">X.509</a> 是<a href="https://zh.wikipedia.org/wiki/國際電信聯盟電信標準化部門" target="_blank" rel="noopener">ITU-T</a>标准化部门基于他们之前的<a href="https://zh.wikipedia.org/wiki/ASN.1" target="_blank" rel="noopener">ASN.1</a>定义的一套证书标准，是密码学里公钥证书的格式标准，己应用在包括<code>TLS/SSL</code>在内的众多 <code>Intenet</code>协议里。<code>X.509</code>证书里含有公钥、身份信息（比如网络主机名，组织的名称或个体名称等）和签名信息（可以是证书签发机构<code>CA</code>的签名，也可以是自签名）。对于一份经由可信的证书签发机构签名或者可以通过其它方式验证的证书，证书的拥有者就可以用证书及相应的私钥来创建安全的通信，对文档进行<a href="https://zh.wikipedia.org/wiki/數位簽章" target="_blank" rel="noopener">数字签名</a>。另外除了证书本身功能，<code>X.509</code>还附带了<a href="https://zh.wikipedia.org/wiki/X.509" target="_blank" rel="noopener">证书吊销列表</a>和用于从最终对证书进行签名的证书签发机构直到最终可信点为止的证书合法性验证算法。</p>
+<h3 id="证书的来源-签名过程"><a href="#证书的来源-签名过程" class="headerlink" title="证书的来源-签名过程"></a>证书的来源-签名过程</h3><p>在<code>X.509</code>里，一个组织机构或公司是通过发起证书签名请求（<code>CSR</code>）来得到一份签名的证书。首先需要生成一对钥匙对，然后用其中的私钥对<code>CSR</code>进行签名，并安全地保存私钥。<code>CSR</code>进而包含有请求发起者的身份信息、用来对此请求进行验真的的公钥以及所请求证书专有名称。<code>CSR</code>里还可能带有<code>CA</code>要求的其它有关身份证明的信息。然后<code>CA</code>对这个专有名称发布一份证书，并绑定一个公钥。组织机构可以把受信的根证书分发给所有的成员，也就是类似各大浏览器和系统都预装有早就确定的根证书列表，所以使用主流<code>CA</code>发布的证书<code>SSL/TLS</code>才可以直接正常使用。</p>
+<p>可以看到数字证书的生成是分层级的，下一级的证书需要其上一级证书的私钥签名。<br>所以后者是前者的证书颁发者，也就是说上一级证书的 Subject Name 是其下一级证书的 Issuer Name。<br>那么<code>CA</code>的根证书是什么呢？<br>其实<code>CA</code>根证书是自签名的，即用自己的私钥签名，不需要其他证书的私钥来生成签名。</p>
+<h3 id="证书格式"><a href="#证书格式" class="headerlink" title="证书格式"></a>证书格式</h3><p>X.509有多种常用的扩展名。不过其中的一些还用于其它用途，就是说具有这个扩展名的文件可能并不是证书，比如说可能只是保存了私钥。</p>
+<p>我们必须要了解的第一件事是每种类型的文件扩展名是什么。有关DER，PEM，CRT和CER的内容存在很多困惑，许多人错误地说它们都是可以互相转换的。虽然在某些情况下可以，但最佳做法是确定证书的编码格式，然后正确区分不同格式的证书将更容易操作。</p>
+<h4 id="编码格式"><a href="#编码格式" class="headerlink" title="编码格式"></a>编码格式</h4><ul>
+<li><p><code>.DER</code>  - <code>Privacy Enhanced Mail</code><br><code>.DER</code> = <code>DER</code>扩展用于二进制<code>DER</code>编码证书。打开看文本格式,以”—<code>BEGIN</code>…”开头, “—<code>END</code>…”结尾,内容是BASE64编码。这些文件也可能带有<code>CER</code>或<code>CRT</code>扩展名。正确的说法是“我有<code>DER</code>编码证书”而不是“我有<code>DER</code>证书”。<br>查看PEM编码证书:</p>
+<pre><code>openssl x509 -in certificate.pem/cer/crt -text –noout
+</code></pre></li>
+<li><p><code>.PEM</code>  - <code>Distinguished Encoding Rules</code><br><code>.PEM</code> = <code>PEM</code>扩展用于不同类型的<code>X.509v3</code>文件，是以“ - <code>BEGIN</code> …”前缀的<code>ASCII</code>（<code>Base64</code>）数据。是二进制格式,不可读。<br>查看DER格式证书的信息:</p>
+<pre><code>openssl x509 -in certificate.der/cer/crt -inform der -text -noout
+</code></pre></li>
+</ul>
+<h4 id="相关的文件扩展名"><a href="#相关的文件扩展名" class="headerlink" title="相关的文件扩展名"></a>相关的文件扩展名</h4><ul>
+<li><code>.CRT</code> = <code>CRT</code>扩展用于证书。 证书可以被编码为二进制<code>DER</code>或<code>ASCII PEM</code>。 <code>CER</code>和<code>CRT</code>扩展几乎是同义词。 最常见的于<code>Unix</code> 或类<code>Unix</code>系统（<code>DER</code>编码的<code>.crt</code>，或<code>base64`</code>PEM<code>编码的</code>.crt`，这两种都有）。</li>
+<li><code>.CER</code> =<code>.CRT</code>的替代形式（<code>Microsoft Convention</code>）可以在微软系统环境下将<code>.crt</code>转换为<code>.cer</code>（两种编码格式都有）。</li>
+<li><code>.KEY</code>= <code>KEY</code>扩展用于公共和私有<a href="https://zh.wikipedia.org/wiki/公钥密码学标准" target="_blank" rel="noopener">PKCS #8</a>。密钥同样有两种编码格式。查看KEY的办法:<code>openssl rsa -in mykey.key -text -noout</code>。如果是DER格式的话,同理应该这样了:<code>openssl rsa -in mykey.key -text -noout -inform der</code></li>
+<li><code>PFX/P12</code> - <a href="https://zh.wikipedia.org/wiki/公钥密码学标准" target="_blank" rel="noopener"><code>PKCS#12</code></a>（个人消息交换标准-Personal Information Exchange Syntax Standard）格式，包含证书的同时可能还有带密码保护的私钥。<code>PKCS #12</code> 是微软 <code>PFX</code> 文件的替代者，然而，<code>PKCS #12</code>文件和<code>PFX</code>文件这两个词有时被相互替代使用用。</li>
+</ul>
+<p>CRT和CER可以安全地互换的唯一情况是编码类型可以相同。（即PEM编码CRT = PEM编码CER）</p>
+<h4 id="转换证书编码格式"><a href="#转换证书编码格式" class="headerlink" title="转换证书编码格式"></a>转换证书编码格式</h4><p>PEM到DER</p>
+<pre><code>openssl x509 -in cert.crt -outform der-out cert.der
+</code></pre><p>DER到PEM</p>
+<pre><code>openssl x509 -in cert.crt -inform der -outform pem -out cert.pem
+</code></pre><p>(提示:要转换KEY文件也类似,只不过把x509换成rsa,要转CSR的话,把x509换成req…)</p>
+<h4 id="组合证书"><a href="#组合证书" class="headerlink" title="组合证书"></a>组合证书</h4><p>在某些情况下，将多个X.509基础设施组合到单个文件中是有利的。一个常见的例子是将私钥和公钥两者结合到相同的证书中。组合密钥和链的最简单的方法是将每个文件转换为PEM编码的证书，然后将每个文件的内容简单地复制到一个新文件中。这适用于组合文件以在Apache中使用的应用程序。</p>
+<h4 id="获得证书"><a href="#获得证书" class="headerlink" title="获得证书"></a>获得证书</h4><p>1.向权威证书颁发机构申请证书<br>用这命令生成一个csr: </p>
+<pre><code>openssl req -newkey rsa:2048 -new -nodes -keyout my.key -out my.csr
+
+-req  表明输入文件是一个&quot;请求签发证书文件(CSR)&quot;，等待进行签发 
+-newkey rsa:bits  生成一个bits长度的RSA私钥文件，用于签发 
+-new  新的请求
+-nodes  生成的私有密钥文件将不会被加密
+-keyout file  指定生成的私钥文件名称
+-out file  处理结束后输出的证书文件
+</code></pre><p>把csr交给权威证书颁发机构,权威证书颁发机构对此进行签名,完成.保留好csr,当权威证书颁发机构颁发的证书过期的时候,你还可以用同样的csr来申请新的证书,key保持不变。</p>
+<p>2.或者生成自签名的证书</p>
+<pre><code>openssl req -newkey rsa:2048 -new -nodes -x509 -days 365 -keyout key.pem -out cert.pem
+
+-x509  签发X.509格式证书命令
+-days 365  表示有效天数,这里为365天
+</code></pre><p>在生成证书的过程中会要你填一堆的东西,其实真正要填的只有<code>Common Name,</code>通常填写你服务器的域名,如<code>&quot;yourcompany.com&quot;</code>，或者你服务器的IP地址，其它都可以留空的。</p>
+<p>3.<strong>获取到站点的证书</strong><br>如果是服务器已经配置了证书，直接找后台要公钥证书就好。如果暂时拿不到其实也可以我们自己动手。以google为例。</p>
+<pre><code>openssl s_client -connect www.google.com:443 &lt;/dev/null 2&gt;/dev/null | openssl x509 -outform DER &gt; https.cer
+</code></pre><p>该条命令将会在当前路径下，形成google.com站点的公开二进制证书，命名为https.cer。就可以愉快的玩耍了。</p>
+<p>注： -nodes 生成的私有密钥文件将不会被加密。也就是在每次Apache启动Web服务器时，都会要求输入密码，如果忘记了加上可以后期删除私钥中的密码，操作如下：</p>
+<pre><code>cp server.key server.key.org
+openssl rsa -in server.key.org -out server.key
+</code></pre><h4 id="HTTPS中的验证"><a href="#HTTPS中的验证" class="headerlink" title="HTTPS中的验证"></a>HTTPS中的验证</h4><p>当客户端走 HTTPS 访问站点时，服务器会返回整个证书链。以下图百度的证书链为例：<br><img src="https://ws3.sinaimg.cn/large/006tNc79gy1g02cxtlmh8j30di07eq3x.jpg" alt=""></p>
+<p>要验证 <code>baidu.com</code> 这个证书有没被篡改，就要用到<code>GlobalSign Organization Validation CA - SHA256 - G2</code> 提供的公钥解密前者的签名得到摘要 <code>Digest1</code>，我们的客户端也计算前者证书的内容得到摘要 <code>Digest2</code>。对比这两个摘要就能知道前者是否被篡改。后者同理，使用 <code>GlobalSign Root CA</code> 提供的公钥验证。当验证到到受信任的根证书时，就能确定 <code>baidu.com</code> 这个证书是可信的。</p>
+<p>注：<br>1.那么又是如何确定上面提到的根证书<code>GlobalSign Root CA</code>是受信任的呢？<br>上面’证书的来源-签名过程’-我们不仅提到过，<code>CA</code>根证书是自签名的，即用自己的私钥签名，签署和管理的 CA 根证书的同时会将证书纳入到各种浏览器和操作系统的可信证书列表中，并由这个列表判断根证书是否可信。所以不要随便导入其他的根证书到你的操作系统中。<br>2.那么这么说如果我们有这么个证书，也能使用类似<code>CA</code>的功能给其他人的<code>CSR</code>进行签名？<br>不一定。如下图，拓展字段里面有个叫基本约束的数据结构，里面有个字段叫路径长度限制<code>（Path Length Constraint）</code>，表明了该证书能继续签署 <code>CA</code> 子证书的深度，这里为0，说明这个 <code>GlobalSign Organization Validation CA - SHA256 - G2</code> 只能签署客户端证书，而客户端证书不能用于签署新的证书，<code>CA</code>子证书才能这么做。<br><img src="https://ws1.sinaimg.cn/large/006tNc79gy1g02d22g2u6j30gb0kgtbn.jpg" alt=""></p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 Gitalk -->
+<div id="gitalk-comment">
+    <!-- Gitalk 评论框 -->
+<div id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<script>
+    var gitalk = new Gitalk({
+            clientID: '7d2dc5a9aec4f08ebe84',
+            clientSecret: '385c64bf3364f30a8e3dabedf93e44d5bc9b3803',
+            repo: 'gitalk',
+            owner: 'xiaoLit',
+            admin: ['xiaoLit'],
+            // facebook-like distraction free mode
+            distractionFreeMode: false,
+            id: 'HTTPS的证书X.509'
+        })
+   gitalk.render('gitalk-container')
+</script>
+
+
+</div>
+<style>
+    #gitalk-comment {
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/12/28/iOSMD5/" id="post_nav-older" class="next-content">
+            Older
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     
@@ -1159,6 +965,10 @@ It will not impact the appearance and can give developers a lot of support :)
 <!-- Import prettify js  -->
 
     
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?B0X9GxxuqRi5dX/QOnd1Bw==", true)</script>
+        
+    
 
 
 
@@ -1171,6 +981,11 @@ It will not impact the appearance and can give developers a lot of support :)
     });
 
     
+        
+            $(function() {
+                    $('pre').addClass('prettyprint').attr('style', 'overflow:auto;');
+                    prettyPrint();
+                })
         
     
     
