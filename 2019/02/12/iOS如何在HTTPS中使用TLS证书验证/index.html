@@ -249,7 +249,7 @@
 
     
         <meta property="article:published_time" content="Tue Feb 12 2019 00:00:00 GMT+0800">
-        <meta property="article:modified_time" content="Thu Feb 14 2019 17:34:31 GMT+0800">
+        <meta property="article:modified_time" content="Thu Feb 14 2019 17:38:34 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -272,7 +272,7 @@
     "mainEntityOfPage": "https://xiaolit.github.io/2019/02/12/iOS如何在HTTPS中使用TLS证书验证/index.html",
     "headline": "iOS如何在HTTPS中使用TLS证书验证",
     "datePublished": "Tue Feb 12 2019 00:00:00 GMT+0800",
-    "dateModified": "Thu Feb 14 2019 17:34:31 GMT+0800",
+    "dateModified": "Thu Feb 14 2019 17:38:34 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "xiaoLit",
@@ -356,7 +356,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#NSURLSession-如何使用TLS证书钢钉"><span class="post-toc-number">1.</span> <span class="post-toc-text">NSURLSession 如何使用TLS证书钢钉</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#默认的实现"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">默认的实现</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#深入简出介入“验证数字证书有效性”步骤"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">深入简出介入“验证数字证书有效性”步骤</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-首先加载证书"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">1.首先加载证书</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-设置锚点证书"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">2.设置锚点证书</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-验证证书"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">3.验证证书</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#AFN-如何使用TLS证书钢钉"><span class="post-toc-number">2.</span> <span class="post-toc-text">AFN 如何使用TLS证书钢钉</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#首先加载证书，略有区别"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">首先加载证书，略有区别</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Reference"><span class="post-toc-number">3.</span> <span class="post-toc-text">Reference</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#NSURLSession-如何使用TLS证书钢钉"><span class="post-toc-number">1.</span> <span class="post-toc-text">NSURLSession 如何使用TLS证书钢钉</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#默认的实现"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">默认的实现</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#深入简出介入“验证数字证书有效性”步骤"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">深入简出介入“验证数字证书有效性”步骤</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-首先加载证书"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">1.首先加载证书</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-设置锚点证书"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">2.设置锚点证书</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-验证证书"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">3.验证证书</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#AFN-如何使用TLS证书钢钉"><span class="post-toc-number">2.</span> <span class="post-toc-text">AFN 如何使用TLS证书钢钉</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#首先加载证书，略有区别"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">首先加载证书，略有区别</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#初始化证书策略"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">初始化证书策略</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#设置验证策略"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">设置验证策略</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#几个需要注意的地方"><span class="post-toc-number">3.</span> <span class="post-toc-text">几个需要注意的地方</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#备注"><span class="post-toc-number">4.</span> <span class="post-toc-text">备注</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Reference"><span class="post-toc-number">5.</span> <span class="post-toc-text">Reference</span></a></li></ol>
     </ul>
     
 
@@ -561,8 +561,7 @@ NSString *cerPath = [[NSBundle mainBundle] pathForResource:@&quot;cerName&quot; 
 NSString *cerPath = [HTTPSTool cerPath];
 NSData *dataSou = [NSData dataWithContentsOfFile:cerPath];
 NSSet *set = [NSSet setWithObjects:dataSou, nil];
-</code></pre><p>###初始化证书策略</p>
-<pre><code>AFSecurityPolicy *securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModePublicKey];
+</code></pre><h3 id="初始化证书策略"><a href="#初始化证书策略" class="headerlink" title="初始化证书策略"></a>初始化证书策略</h3><pre><code>AFSecurityPolicy *securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModePublicKey];
 </code></pre><pre><code>AFSSLPinningMode：验证策略
 
 AFSSLPinningModeNone : 不必将证书跟你的 APP 一起打包，完全信任服务器的证书，也就是默认的策略
@@ -574,13 +573,13 @@ securityPolicy.allowInvalidCertificates = NO;
 </code></pre><p>验证域名，默认为<code>YES</code>。如置为<code>NO</code>，建议自己添加对应域名的校验逻辑。<br>假如证书的域名与你请求的域名不一致，需把该项设置为<code>NO</code>。即服务器使用其他可信任机构颁发的证书，也可以建立连接。主要用于这种情况：客户端请求的是子域名，而证书上的是另外一个域名。因为<code>SSL</code>证书上的域名是独立的，假如证书上注册的域名是<code>www.google.com</code>，那么<code>mail.google.com</code>是无法验证通过的。当然，有钱可以注册通配符的域名<code>*.google.com</code>，但这个还是比较贵的。</p>
 <pre><code>是否需要验证域名
 securityPolicy.validatesDomainName = YES;
-</code></pre><p>###设置验证策略<br>拿到网络请求的<code>AFHTTPSessionManager</code>类型的<code>manager</code></p>
+</code></pre><h3 id="设置验证策略"><a href="#设置验证策略" class="headerlink" title="设置验证策略"></a>设置验证策略</h3><p>拿到网络请求的<code>AFHTTPSessionManager</code>类型的<code>manager</code></p>
 <pre><code>//策略加入证书
 [securityPolicy setPinnedCertificates:set];
 //网络请求加入策略
 [manager setSecurityPolicy:securityPolicy];
 </code></pre><p>就此完工。</p>
-<p>##几个需要注意的地方<br>1.</p>
+<h2 id="几个需要注意的地方"><a href="#几个需要注意的地方" class="headerlink" title="几个需要注意的地方"></a>几个需要注意的地方</h2><p>1.</p>
 <pre><code>CFArrayRef policiesRef;
 SecTrustCopyPolicies(trust, &amp;policiesRef);
 可以看到默认加入了 域名验证
@@ -610,8 +609,7 @@ SecTrustSetPolicies(trust, (__bridge CFArrayRef)policies);
 <p><img src="https://ws1.sinaimg.cn/large/006tKfTcgy1g062f98xl0j30oa08t40i.jpg" alt=""></p>
 <p>获取服务器所返回证书链的公钥<br><img src="https://ws2.sinaimg.cn/large/006tKfTcgy1g0626co4jej30rc0kc78a.jpg" alt=""></p>
 <p>我们设置的锚点证书公钥<br><img src="https://ws2.sinaimg.cn/large/006tKfTcgy1g062cdmmy2j30ux0antay.jpg" alt=""></p>
-<p>##备注</p>
-<pre><code>NSURLAuthenticationChallenge
+<h2 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h2><pre><code>NSURLAuthenticationChallenge
 
 - (NSURLProtectionSpace *)protectionSpace; // 这个函数返回一个类NSURLProtectionSpace，类中描述服务器中希望的认证方式以及协议，主机端口号等信息。
 - (NSURLCredential *)proposedCredential; // 建议使用的证书
