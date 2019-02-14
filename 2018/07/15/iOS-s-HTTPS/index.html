@@ -249,7 +249,7 @@
 
     
         <meta property="article:published_time" content="Sun Jul 15 2018 00:00:00 GMT+0800">
-        <meta property="article:modified_time" content="Thu Feb 14 2019 17:42:50 GMT+0800">
+        <meta property="article:modified_time" content="Thu Feb 14 2019 17:53:50 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -272,7 +272,7 @@
     "mainEntityOfPage": "https://xiaolit.github.io/2018/07/15/iOS-s-HTTPS/index.html",
     "headline": "iOS应该了解的HTTPS",
     "datePublished": "Sun Jul 15 2018 00:00:00 GMT+0800",
-    "dateModified": "Thu Feb 14 2019 17:42:50 GMT+0800",
+    "dateModified": "Thu Feb 14 2019 17:53:50 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "xiaoLit",
@@ -503,7 +503,7 @@
 <p>问题来源：首先为什么要接入<code>HTTPS</code>，对比<code>HTTP</code>有什么好处？<br>并不是苹果爸爸要求我们(目前无限期延长)，而是确实有其需要的重要意义。</p>
 </blockquote>
 <p>本文乃至博客会引用大量维基等需要翻的内容，有链接问题的请翻越。</p>
-<h2 id="如何食用"><a href="#如何食用" class="headerlink" title="如何食用"></a>如何食用</h2><p><strong>如果你只是想最简单使用后台提供的<code>HTTPS</code>接口（</strong>CA机构购买的证书<strong>），并不想了解更多内容，那么你可以直接不用看了，因为<code>iOS</code>系统会帮我们自动验证<code>HTTPS</code>，不管是用的原生NSURLSession构建的网络库，还是使用AFN都不需要我们额外费心思。如果你是有安全方面的要求（金融等相关-需要加入<code>TLS</code>证书钢钉）或者想了解更多关于<code>HTTPS</code>的相关内容可以继续往下看。</strong></p>
+<h2 id="如何食用"><a href="#如何食用" class="headerlink" title="如何食用"></a>如何食用</h2><p><strong>如果你只是想最简单使用后台提供的<code>HTTPS</code>接口（</strong>CA机构购买的证书<strong>），并不想了解更多内容，那么你可以直接不用看了，因为<code>iOS</code>系统会帮我们自动验证<code>HTTPS</code>，不管是用的原生NSURLSession构建的网络库，还是使用AFN==都不需要我们额外做任何处理==。如果你是有安全方面的要求（金融等相关-需要加入<code>TLS</code>证书钢钉）或者是==自制证书==和想了解更多关于<code>HTTPS</code>的相关内容可以继续往下看。</strong></p>
 <p>相关内容可以不用直接去看到时机了还会再出现。</p>
 <p><a href="https://xiaolit.github.io/2019/02/01/X-509certificate/">HTTPS的证书X.509</a></p>
 <p><a href="https://xiaolit.github.io/2019/02/12/iOS如何在HTTPS中使用TLS证书验证/">iOS如何在HTTPS中使用TLS证书验证</a></p>
@@ -530,7 +530,7 @@
 <h2 id="HTTPS的局限"><a href="#HTTPS的局限" class="headerlink" title="HTTPS的局限"></a>HTTPS的局限</h2><p><code>TLS</code>有两种策略：简单策略和交互策略。交互策略更为安全，但需要用户在他们的浏览器中安装个人的证书来进行认证。<br>不管使用了哪种策略，协议所能提供的保护总强烈地依赖于浏览器的实现和服务器软件所支持的加密算法。</p>
 <p>HTTPS并不能防止站点被<a href="https://zh.wikipedia.org/wiki/網路爬蟲" target="_blank" rel="noopener">网络爬虫</a>抓取。在某些情形中，被加密资源的<code>URL</code>可仅通过截获请求和响应的大小推得，[16]这就可使攻击者同时知道明文（公开的静态内容）和密文（被加密过的明文），从而使<a href="https://zh.wikipedia.org/wiki/选择密文攻击" target="_blank" rel="noopener">选择密文攻击</a>成为可能。</p>
 <p>因为HTTPS连接所用的公钥以明文传输，因此中国大陆的防火长城可以对特定网站按照匹配的黑名单证书，通过伪装成对方向连接两端的计算机发送RST包干扰两台计算机间正常的TCP通讯，以打断与特定IP地址之间的443端口握手，或者直接使握手的数据包丢弃，导致握手失败，从而导致TLS连接失败。这也是一种互联网信息审查和屏蔽的技术手段。</p>
-<h3 id="TLS证书验证的作用"><a href="#TLS证书验证的作用" class="headerlink" title="TLS证书验证的作用"></a>TLS证书验证的作用</h3><p>如果有人通过一些手段通过了域名所有权认证（非常容易，域名邮箱、<code>DNS</code>指向甚至在根目录放一个文件都可以验证通过），拿到了一个合法的对应你的域名的 <code>HTTPS</code> 证书，这时候他在广场开放了一个没有密码的 <code>wifi</code>，命名为 <code>CMCC</code>，这样，几乎所有的开着 <code>wifi</code> 的手机都会自动连接，这时候他只需要做一个简单的 <code>DNS</code> 劫持，就可以把所有应该向你网站发送的需求劫持到他那里。<br>但是：如果你做了 <code>TLS</code> 证书验证，那么他的证书就不会被验证通过。他也没法用你的证书启动服务，因为私钥和证书的验证是 <code>SSL</code> 协议强制做的，他没有你的私钥，他的 <code>web server</code> 就没法启动。所以，私钥千万不能泄露。<br>所以这就有了</p>
+<h3 id="TLS证书验证的作用"><a href="#TLS证书验证的作用" class="headerlink" title="TLS证书验证的作用"></a>TLS证书验证的作用</h3><p>如果有人通过一些手段通过了域名所有权认证（非常容易，域名邮箱、<code>DNS</code>指向甚至在根目录放一个文件都可以验证通过），拿到了一个合法的对应你的域名的 <code>HTTPS</code> 证书，这时候他在广场开放了一个没有密码的 <code>wifi</code>，命名为 <code>CMCC</code>，这样，几乎所有的开着 <code>wifi</code> 的手机都会自动连接，这时候他只需要做一个简单的 <code>DNS</code> 劫持，就可以把所有应该向你网站发送的需求劫持到他那里。<br>但是：如果你做了 <code>TLS</code> 证书验证，那么他的证书就不会被验证通过。他也没法用你的证书启动服务，因为私钥和证书的验证是 <code>SSL</code> 协议强制做的，他没有你的私钥，他的 <code>web server</code> 就没法启动。所以，私钥千万不能泄露。<br>所以这就有了<a href="https://xiaolit.github.io/2019/02/12/iOS如何在HTTPS中使用TLS证书验证/">《iOS如何在HTTPS中使用TLS证书验证》</a>。</p>
 <h2 id="iOS在HTTPS中使用TLS证书验证相关的API和方法"><a href="#iOS在HTTPS中使用TLS证书验证相关的API和方法" class="headerlink" title="iOS在HTTPS中使用TLS证书验证相关的API和方法"></a>iOS在HTTPS中使用TLS证书验证相关的API和方法</h2><p>终于到了大家最喜闻乐见的代码环节了。<br>可以看我的另一篇博客<a href="https://xiaolit.github.io/2019/02/12/iOS如何在HTTPS中使用TLS证书验证/">《iOS如何在HTTPS中使用TLS证书验证》</a>。</p>
 <h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><h3 id="如何才能知道一个HTTPS服务器是否符合ATS特性中的要求的呢？"><a href="#如何才能知道一个HTTPS服务器是否符合ATS特性中的要求的呢？" class="headerlink" title="如何才能知道一个HTTPS服务器是否符合ATS特性中的要求的呢？"></a>如何才能知道一个HTTPS服务器是否符合ATS特性中的要求的呢？</h3><p>使用<code>nscurl</code>命令：</p>
 <pre><code>nscurl --ats-diagnostics --verbose https://example.com
