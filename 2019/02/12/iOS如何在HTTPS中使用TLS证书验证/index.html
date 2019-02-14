@@ -249,7 +249,7 @@
 
     
         <meta property="article:published_time" content="Tue Feb 12 2019 00:00:00 GMT+0800">
-        <meta property="article:modified_time" content="Thu Feb 14 2019 17:11:36 GMT+0800">
+        <meta property="article:modified_time" content="Thu Feb 14 2019 17:34:31 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -272,7 +272,7 @@
     "mainEntityOfPage": "https://xiaolit.github.io/2019/02/12/iOS如何在HTTPS中使用TLS证书验证/index.html",
     "headline": "iOS如何在HTTPS中使用TLS证书验证",
     "datePublished": "Tue Feb 12 2019 00:00:00 GMT+0800",
-    "dateModified": "Thu Feb 14 2019 17:11:36 GMT+0800",
+    "dateModified": "Thu Feb 14 2019 17:34:31 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "xiaoLit",
@@ -509,7 +509,7 @@ if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthent
     SecTrustRef trust = challenge.protectionSpace.serverTrust;   
     ...
 } 
-</code></pre><p>拿到了trust证书链表后，我们需要把我们自己的证书放进去。也就是设置锚点证书。就是<a href="">HTTPS的证书X.509</a>中<strong>HTTPS中的验证</strong>中提到的那个可自定义的锚点证书。</p>
+</code></pre><p>拿到了trust证书链表后，我们需要把我们自己的证书放进去。也就是设置锚点证书。就是<a href="https://xiaolit.github.io/2019/02/12/iOS如何在HTTPS中使用TLS证书验证/">HTTPS的证书X.509</a>中<strong>HTTPS中的验证</strong>中提到的那个可自定义的锚点证书。</p>
 <h4 id="1-首先加载证书"><a href="#1-首先加载证书" class="headerlink" title="1.首先加载证书"></a>1.首先加载证书</h4><pre><code>//证书路径
 NSString *cerPath = [[NSBundle mainBundle] pathForResource:@&quot;cerName&quot; ofType:@&quot;.cer&quot;];
 NSData * cerData = [NSData dataWithContentsOfFile:cerPath];
@@ -518,7 +518,7 @@ SecCertificateRef certificate = SecCertificateCreateWithData(NULL, (__bridge CFD
 //此处数组可以放多张证书
 NSArray *trustedCertificates = @[CFBridgingRelease(certificate)];
 </code></pre><h4 id="2-设置锚点证书"><a href="#2-设置锚点证书" class="headerlink" title="2.设置锚点证书"></a>2.设置锚点证书</h4><pre><code>SecTrustSetAnchorCertificates(trust, (__bridge CFArrayRef)self.trustedCertificates);
-</code></pre><p>对于<a href="">HTTPS的证书X.509</a>中<strong>HTTPS中的验证</strong>中提到的那个锚点证书通常来说指的是系统根证书，但是可以自定义说的就是这里。<br>注：<code>SecTrustSetAnchorCertificates(serverTrust对象, 本地证书数组)</code>将本地证书数组设置成需要参与验证的锚点证书。最后还是通过SecTrustEvaluate()方法进行校验,假如验证的数字证书是这个锚点证书的子节点，即验证的数字证书是由锚点证书对应CA或子CA签发的，或是该证书本身，则信任该证书.</p>
+</code></pre><p>对于<a href="https://xiaolit.github.io/2019/02/01/X-509certificate/">HTTPS的证书X.509</a>中<strong>HTTPS中的验证</strong>中提到的那个锚点证书通常来说指的是系统根证书，但是可以自定义说的就是这里。<br>注：<code>SecTrustSetAnchorCertificates(serverTrust对象, 本地证书数组)</code>将本地证书数组设置成需要参与验证的锚点证书。最后还是通过<code>SecTrustEvaluate()</code>方法进行校验,假如验证的数字证书是这个锚点证书的子节点，即验证的数字证书是由锚点证书对应CA或子CA签发的，或是该证书本身，则信任该证书.</p>
 <p>只调用 <code>SecTrustSetAnchorCertificates ()</code> 这个函数的话，那么就只有作为参数被传入的证书作为锚点证书，连系统本身信任的 CA 证书不能作为锚点验证证书链。要想恢复系统中 CA 证书作为锚点的功能，还要再调用下面这个函数：<br>//true 代表仅被传入的证书作为锚点，false 允许系统 CA 证书也作为锚点。</p>
 <pre><code>SecTrustSetAnchorCertificatesOnly(trust, true);
 </code></pre><p>注：这里设置为true，就可以防止答案就在于用户让系统信任了不应该信任的证书。用户设置系统信任的证书，会作为锚点证书<code>(Anchor Certificate)</code>来验证其他证书，当返回的服务器证书是锚点证书或者是基于该证书签发的证书（可以是多个层级）都会被信任。这就是基于信任链校验方式的最大弱点。我们不能完全相信系统的校验。这也是TLS证书验证的重要理由之一。</p>
@@ -553,7 +553,7 @@ NSURLCredential:
 //直接创建
 credential = [NSURLCredential credentialForTrust:trust];
 
-</code></pre><p>一多半的功告成，因为AFN也只不过是多分装和处理了一下，调用<code>API</code>不同不过底层<code>API</code>都是相同的即上面我们搞的那些，看着很多其实理清思路了并不多，大家可以看一下<a href="">Demo</a>，精简了分析注释和代码。</p>
+</code></pre><p>一多半的功告成，因为AFN也只不过是多分装和处理了一下，调用<code>API</code>不同不过底层<code>API</code>都是相同的即上面我们搞的那些，看着很多其实理清思路了并不多，大家可以看一下<a href="https://github.com/xiaoLit/HTTPSTool" target="_blank" rel="noopener">HTTPSTool</a>，精简了分析注释和代码。</p>
 <h2 id="AFN-如何使用TLS证书钢钉"><a href="#AFN-如何使用TLS证书钢钉" class="headerlink" title="AFN 如何使用TLS证书钢钉"></a>AFN 如何使用TLS证书钢钉</h2><p>原理我们已经理清楚了，直接上代码说一下不同点就可以了。</p>
 <h3 id="首先加载证书，略有区别"><a href="#首先加载证书，略有区别" class="headerlink" title="首先加载证书，略有区别"></a>首先加载证书，略有区别</h3><pre><code>//证书路径
 NSString *cerPath = [[NSBundle mainBundle] pathForResource:@&quot;cerName&quot; ofType:@&quot;.cer&quot;];
