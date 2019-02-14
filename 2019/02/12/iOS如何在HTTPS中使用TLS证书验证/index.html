@@ -48,7 +48,7 @@
     
     <title>
         
-            Bugly的日常 | 
+            iOS如何在HTTPS中使用TLS证书验证 | 
         
         通往iOS的不归路上...
     </title>
@@ -59,7 +59,7 @@
 
     <meta name="format-detection" content="telephone=no"/>
     <meta name="description" itemprop="description" content="description">
-    <meta name="keywords" content="blog iOS light xiaolit,Bug">
+    <meta name="keywords" content="blog iOS light xiaolit,安全,加密">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -225,7 +225,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="通往iOS的不归路上...">
-    <meta name="msapplication-starturl" content="https://xiaolit.github.io/2018/11/22/Bugly-s-Daily/">
+    <meta name="msapplication-starturl" content="https://xiaolit.github.io/2019/02/12/iOS如何在HTTPS中使用TLS证书验证/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="通往iOS的不归路上...">
@@ -240,16 +240,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="https://xiaolit.github.io/2018/11/22/Bugly-s-Daily/">
+    <meta property="og:url" content="https://xiaolit.github.io/2019/02/12/iOS如何在HTTPS中使用TLS证书验证/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Bugly的日常 | 通往iOS的不归路上...">
+    <meta property="og:title" content="iOS如何在HTTPS中使用TLS证书验证 | 通往iOS的不归路上...">
     <meta property="og:image" content="/img/favicon.png">
     <meta property="og:description" content="description">
-    <meta property="og:article:tag" content="Bug"> 
+    <meta property="og:article:tag" content="安全"> <meta property="og:article:tag" content="加密"> 
 
     
-        <meta property="article:published_time" content="Thu Nov 22 2018 00:00:00 GMT+0800">
-        <meta property="article:modified_time" content="Mon Feb 11 2019 16:02:08 GMT+0800">
+        <meta property="article:published_time" content="Tue Feb 12 2019 00:00:00 GMT+0800">
+        <meta property="article:modified_time" content="Thu Feb 14 2019 17:11:36 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -257,7 +257,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="https://xiaolit.github.io/2018/11/22/Bugly-s-Daily/index.html" />
+        <link rel="canonical" href="https://xiaolit.github.io/2019/02/12/iOS如何在HTTPS中使用TLS证书验证/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -269,10 +269,10 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "https://xiaolit.github.io/2018/11/22/Bugly-s-Daily/index.html",
-    "headline": "Bugly的日常",
-    "datePublished": "Thu Nov 22 2018 00:00:00 GMT+0800",
-    "dateModified": "Mon Feb 11 2019 16:02:08 GMT+0800",
+    "mainEntityOfPage": "https://xiaolit.github.io/2019/02/12/iOS如何在HTTPS中使用TLS证书验证/index.html",
+    "headline": "iOS如何在HTTPS中使用TLS证书验证",
+    "datePublished": "Tue Feb 12 2019 00:00:00 GMT+0800",
+    "dateModified": "Thu Feb 14 2019 17:11:36 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "xiaoLit",
@@ -290,7 +290,7 @@
             "url": "/img/favicon.png"
         }
     },
-    "keywords": ",Bugblog iOS light xiaolit",
+    "keywords": ",安全,加密blog iOS light xiaolit",
     "description": "description",
 }
 </script>
@@ -356,7 +356,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#最好不要看什么其他人写的关于buglg的具体操作，就连符号表的基本提取操作之前看了其他文章都让我绕了好多弯路，直接官方文档为准。"><span class="post-toc-number">1.</span> <span class="post-toc-text">最好不要看什么其他人写的关于buglg的具体操作，就连符号表的基本提取操作之前看了其他文章都让我绕了好多弯路，直接官方文档为准。</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#NSURLSession-如何使用TLS证书钢钉"><span class="post-toc-number">1.</span> <span class="post-toc-text">NSURLSession 如何使用TLS证书钢钉</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#默认的实现"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">默认的实现</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#深入简出介入“验证数字证书有效性”步骤"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">深入简出介入“验证数字证书有效性”步骤</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-首先加载证书"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">1.首先加载证书</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-设置锚点证书"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">2.设置锚点证书</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-验证证书"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">3.验证证书</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#AFN-如何使用TLS证书钢钉"><span class="post-toc-number">2.</span> <span class="post-toc-text">AFN 如何使用TLS证书钢钉</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#首先加载证书，略有区别"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">首先加载证书，略有区别</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Reference"><span class="post-toc-number">3.</span> <span class="post-toc-text">Reference</span></a></li></ol>
     </ul>
     
 
@@ -388,7 +388,7 @@
         
     
             <p class="article-headline-p">
-                Bugly的日常
+                iOS如何在HTTPS中使用TLS证书验证
             </p>
         </div>
 
@@ -407,7 +407,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>xiaoLit</strong>
-        <span>Nov 22, 2018</span>
+        <span>Feb 12, 2019</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -431,7 +431,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/Bug/">Bug</a>
+        <a class="post_tag-link" href="/tags/加密/">加密</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/安全/">安全</a>
     </ul>
     
 
@@ -459,7 +459,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Bugly的日常&url=https://xiaolit.github.io/2018/11/22/Bugly-s-Daily/index.html&pic=https://xiaolit.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=iOS如何在HTTPS中使用TLS证书验证&url=https://xiaolit.github.io/2019/02/12/iOS如何在HTTPS中使用TLS证书验证/index.html&pic=https://xiaolit.github.io/img/favicon.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 Share to Weibo
             </li>
@@ -480,7 +480,7 @@
 
     <!-- Share QQ -->
     
-        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=通往iOS的不归路上...&title=Bugly的日常&summary=description&pics=https://xiaolit.github.io/img/favicon.png&url=https://xiaolit.github.io/2018/11/22/Bugly-s-Daily/index.html" target="_blank">
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=通往iOS的不归路上...&title=iOS如何在HTTPS中使用TLS证书验证&summary=description&pics=https://xiaolit.github.io/img/favicon.png&url=https://xiaolit.github.io/2019/02/12/iOS如何在HTTPS中使用TLS证书验证/index.html" target="_blank">
             <li class="mdl-menu__item">
                 Share to QQ
             </li>
@@ -499,40 +499,160 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <h2 id="最好不要看什么其他人写的关于buglg的具体操作，就连符号表的基本提取操作之前看了其他文章都让我绕了好多弯路，直接官方文档为准。"><a href="#最好不要看什么其他人写的关于buglg的具体操作，就连符号表的基本提取操作之前看了其他文章都让我绕了好多弯路，直接官方文档为准。" class="headerlink" title="最好不要看什么其他人写的关于buglg的具体操作，就连符号表的基本提取操作之前看了其他文章都让我绕了好多弯路，直接官方文档为准。"></a>最好不要看什么其他人写的关于buglg的具体操作，就连符号表的基本提取操作之前看了其他文章都让我绕了好多弯路，直接<a href="https://bugly.qq.com/docs/user-guide/symbol-configuration-ios/?v=20181014122344" target="_blank" rel="noopener">官方文档</a>为准。</h2><p>不记得哪位大佬发的图片了，引以为向前的目标<br><img src="https://ws1.sinaimg.cn/large/006tNc79gy1g02d2ifisbj30hv0b00v3.jpg" alt=""></p>
-<pre><code>崩溃日志
--[CFPrefsSearchListSource alreadylocked_copyDictionary] 
--[CFPrefsSearchListSource alreadylocked_copyValueForKey:] 
-</code></pre><p>日历获取在9.x之后的系统使用 [NSCalendar currentCalendar] 会出异常。在8.0之后使用系统新API,做个分类用一下代码</p>
-<pre><code>+ (NSCalendar *)Lit_currentCalendar {
-    if ([NSCalendar respondsToSelector:@selector(calendarWithIdentifier:)]) {
-        return [NSCalendar calendarWithIdentifier:NSCalendarIdentifierGregorian];
+        <h2 id="NSURLSession-如何使用TLS证书钢钉"><a href="#NSURLSession-如何使用TLS证书钢钉" class="headerlink" title="NSURLSession 如何使用TLS证书钢钉"></a>NSURLSession 如何使用TLS证书钢钉</h2><p><code>NSURLSession</code>的代理方法<code>URLSession:didReceiveChallenge:completionHandler:</code><br><code>completionHandler</code>这个<code>block</code>需要相关认证信息(<code>NSURLSessionAuthChallengeDisposition</code>，<code>NSURLCredential</code>)才能完成连接。这个方法能拿到一个<code>NSURLAuthenticationChallenge</code>类型的<code>challenge</code>，这个<code>challenge</code>里面包含着绝大部分网络请求的参数与信息，非常强大，可以详见备注。然后我们就可以根据<code>challenge</code>在这个代理方法中提供一些自定义的信息。</p>
+<h3 id="默认的实现"><a href="#默认的实现" class="headerlink" title="默认的实现"></a>默认的实现</h3><p>如果我们不自定义内容称为<code>NSURLSession</code>的代理，不做任何处理的话那么系统为我们做了些什么呢？</p>
+<p>系统的默认实现是验证<code>challenge</code>中返回的信任链，结果是有效的话则根据 <code>serverTrust</code> 创建 <code>credential</code> 用于同服务端确立 <code>SSL</code> 连接。否则会得到 <code>The certificate for this server is invalid...</code> 这样的错误而无法访问。<br>比如在访问 <code>https://www.baidu.com</code> 的时候咧，我们不实现这个方法也能访问成功的。系统对百度服务器返回来的证书链，从叶节点证书往根证书层层验证（有效期、签名等等），遇到根证书时，发现作为可信锚点的它存在与可信证书列表中，那么验证就通过，允许与服务端建立连接。<br>也就是<a href="https://xiaolit.github.io/2018/07/15/iOS-s-HTTPS/">《iOS应该了解的HTTPS》</a>开篇提到的，如果你只是想iOS端普通的使用HTTPS的接口那就不必做任何操作，iOS默认都帮我们做好了。</p>
+<h3 id="深入简出介入“验证数字证书有效性”步骤"><a href="#深入简出介入“验证数字证书有效性”步骤" class="headerlink" title="深入简出介入“验证数字证书有效性”步骤"></a>深入简出介入“验证数字证书有效性”步骤</h3><p><code>NSURLSession</code>的代理方法<code>URLSession:didReceiveChallenge:completionHandler:</code><br>回调中会收到一个<code>NSURLAuthenticationChallenge</code>类型的<code>challenge</code>。它其中的一个属性<code>NSURLProtectionSpace</code>这是权限认证的核心,它通常被称为保护空间,表示需要认证的服务器或者域,它定义了一系列的约束去告诉我们需要向服务器提供什么样的认证,通过判断<code>authenticationMethod</code>指定授权方式，如果这个值是 <code>NSURLAuthenticationMethodServerTrust</code> 的时候，这个网络连接才会返回证书链做HTTPS的握手校验流程，也就是我们可以从<code>protectionSpace</code>中拿到<code>serverTrust</code>，我们就可以插手 TLS 握手中“验证数字证书有效性”这个一步骤了。</p>
+<pre><code>//当取得保护空间要求我们认证的方式为NSURLAuthenticationMethodServerTrust时才会有serverTrust
+if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust]) {  
+    //拿到系统的 SecTrustRef 它包含验证策略（SecPolicyRef）以及一系列受信任的锚点证书
+    SecTrustRef trust = challenge.protectionSpace.serverTrust;   
+    ...
+} 
+</code></pre><p>拿到了trust证书链表后，我们需要把我们自己的证书放进去。也就是设置锚点证书。就是<a href="">HTTPS的证书X.509</a>中<strong>HTTPS中的验证</strong>中提到的那个可自定义的锚点证书。</p>
+<h4 id="1-首先加载证书"><a href="#1-首先加载证书" class="headerlink" title="1.首先加载证书"></a>1.首先加载证书</h4><pre><code>//证书路径
+NSString *cerPath = [[NSBundle mainBundle] pathForResource:@&quot;cerName&quot; ofType:@&quot;.cer&quot;];
+NSData * cerData = [NSData dataWithContentsOfFile:cerPath];
+
+SecCertificateRef certificate = SecCertificateCreateWithData(NULL, (__bridge CFDataRef)(cerData));
+//此处数组可以放多张证书
+NSArray *trustedCertificates = @[CFBridgingRelease(certificate)];
+</code></pre><h4 id="2-设置锚点证书"><a href="#2-设置锚点证书" class="headerlink" title="2.设置锚点证书"></a>2.设置锚点证书</h4><pre><code>SecTrustSetAnchorCertificates(trust, (__bridge CFArrayRef)self.trustedCertificates);
+</code></pre><p>对于<a href="">HTTPS的证书X.509</a>中<strong>HTTPS中的验证</strong>中提到的那个锚点证书通常来说指的是系统根证书，但是可以自定义说的就是这里。<br>注：<code>SecTrustSetAnchorCertificates(serverTrust对象, 本地证书数组)</code>将本地证书数组设置成需要参与验证的锚点证书。最后还是通过SecTrustEvaluate()方法进行校验,假如验证的数字证书是这个锚点证书的子节点，即验证的数字证书是由锚点证书对应CA或子CA签发的，或是该证书本身，则信任该证书.</p>
+<p>只调用 <code>SecTrustSetAnchorCertificates ()</code> 这个函数的话，那么就只有作为参数被传入的证书作为锚点证书，连系统本身信任的 CA 证书不能作为锚点验证证书链。要想恢复系统中 CA 证书作为锚点的功能，还要再调用下面这个函数：<br>//true 代表仅被传入的证书作为锚点，false 允许系统 CA 证书也作为锚点。</p>
+<pre><code>SecTrustSetAnchorCertificatesOnly(trust, true);
+</code></pre><p>注：这里设置为true，就可以防止答案就在于用户让系统信任了不应该信任的证书。用户设置系统信任的证书，会作为锚点证书<code>(Anchor Certificate)</code>来验证其他证书，当返回的服务器证书是锚点证书或者是基于该证书签发的证书（可以是多个层级）都会被信任。这就是基于信任链校验方式的最大弱点。我们不能完全相信系统的校验。这也是TLS证书验证的重要理由之一。</p>
+<h4 id="3-验证证书"><a href="#3-验证证书" class="headerlink" title="3.验证证书"></a>3.验证证书</h4><p>证书校验函数,在函数的内部递归地从叶节点证书到根证书验证。需要验证证书本身的合法性（验证签名完整性，验证证书有效期等);验证证书颁发者的合法性（查找颁发者的证书并检查其合法性，这个过程是递归的)。而递归的终止条件是证书验证过程中遇到了锚点证书。</p>
+<pre><code>OSStatus status = SecTrustEvaluate(trust, &amp;result);
+</code></pre><p>其中当<code>result</code>等于<code>kSecTrustResultProceed</code>表示<code>serverTrust</code>验证成功，且该验证得到了用户认可(例如在弹出的是否信任的<code>alert</code>框中选择<code>always trust</code>)。 <code>kSecTrustResultUnspecified</code>表示<code>serverTrust</code>验证成功，此证书也被暗中信任了，但是用户并没有显示地决定信任该证书。 两者取其一就可以认为对<code>serverTrust</code>验证成功。</p>
+<p>判断验证结果</p>
+<pre><code>if (status == errSecSuccess &amp;&amp; (result == kSecTrustResultProceed || result == kSecTrustResultUnspecified)) {
+    credential = [NSURLCredential credentialForTrust:trust];
+    if (credential) {
+    disposition = NSURLSessionAuthChallengeUseCredential;
     }
-    return [NSCalendar currentCalendar];
-}
-</code></pre><hr>
-<blockquote>
-<p>崩溃日志</p>
-<pre><code>libGPUSupportMercury.dylib`gpus_ReturnNotPermittedKillClient
-</code></pre></blockquote>
-<p>UIWebView在app进入后台时，如果没有加载渲染完就仍然在进行绘制加载，绘制<br>而苹果规定：如果尝试在后台执行OpenGL ES命令，应用程序将被终止。<br>例如<a href="https://developer.apple.com/library/archive/qa/qa1766/_index.html" target="_blank" rel="noopener">How to fix OpenGL ES application crashes when moving to the background</a></p>
-<p>通过通知来监控app是否进入后台和前台，在进入后台的时候禁止OpenGL，在进入前台后重新加载。</p>
-<pre><code>[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appWillResignActive:) name:UIApplicationWillResignActiveNotification object:nil];
-[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appDidBecomeActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
-</code></pre><pre><code>- (void)appWillResignActive:(NSNotification *)notification {
-    [self.webView stopLoading];
+} else {
+    /* 无效的话，取消 */
+    disposition = NSURLSessionAuthChallengeCancelAuthenticationChallenge;
 }
 
-- (void)appDidBecomeActive:(NSNotification *)notification {
-    [self.webView reload];
+if (completionHandler) {
+    completionHandler(disposition, credential);
 }
-</code></pre><pre><code>- (void)dealloc {
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationWillResignActiveNotification object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidBecomeActiveNotification object:nil];
-}
-</code></pre><p>看到有人说iOS11修复了这个问题，但我用iOS12.1发现此问题仍在。</p>
-<hr>
-<p>发现一个旧的bug<br>switch中break的重要性<br>如果没有break语句，则会从满足条件的地方（即与switch（表达式）括号中表达式匹配的case）开始执行，后面的条件都将不再判断直接执行条件内的代码直到switch结构结束。</p>
+</code></pre><p>对于代理方法中的<code>completionHandler</code>所需要的参数</p>
+<pre><code>(void (^)(NSURLSessionAuthChallengeDisposition, NSURLCredential * _Nullable))completionHandler
+
+NSURLSessionAuthChallengeDisposition：
+
+NSURLSessionAuthChallengePerformDefaultHandling：默认方式处理credential会被忽略
+NSURLSessionAuthChallengeUseCredential：使用指定的证书
+NSURLSessionAuthChallengeCancelAuthenticationChallenge：取消
+
+
+NSURLCredential:
+//直接创建
+credential = [NSURLCredential credentialForTrust:trust];
+
+</code></pre><p>一多半的功告成，因为AFN也只不过是多分装和处理了一下，调用<code>API</code>不同不过底层<code>API</code>都是相同的即上面我们搞的那些，看着很多其实理清思路了并不多，大家可以看一下<a href="">Demo</a>，精简了分析注释和代码。</p>
+<h2 id="AFN-如何使用TLS证书钢钉"><a href="#AFN-如何使用TLS证书钢钉" class="headerlink" title="AFN 如何使用TLS证书钢钉"></a>AFN 如何使用TLS证书钢钉</h2><p>原理我们已经理清楚了，直接上代码说一下不同点就可以了。</p>
+<h3 id="首先加载证书，略有区别"><a href="#首先加载证书，略有区别" class="headerlink" title="首先加载证书，略有区别"></a>首先加载证书，略有区别</h3><pre><code>//证书路径
+NSString *cerPath = [[NSBundle mainBundle] pathForResource:@&quot;cerName&quot; ofType:@&quot;.cer&quot;];
+//创建证书set
+NSString *cerPath = [HTTPSTool cerPath];
+NSData *dataSou = [NSData dataWithContentsOfFile:cerPath];
+NSSet *set = [NSSet setWithObjects:dataSou, nil];
+</code></pre><p>###初始化证书策略</p>
+<pre><code>AFSecurityPolicy *securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModePublicKey];
+</code></pre><pre><code>AFSSLPinningMode：验证策略
+
+AFSSLPinningModeNone : 不必将证书跟你的 APP 一起打包，完全信任服务器的证书，也就是默认的策略
+AFSSLPinningModeCertificate : 对比服务器证书跟你的证书是否完全匹配。
+AFSSLPinningModePublicKey : 只对比服务器证书的 public key 跟你的证书的 public key 是否匹配。
+</code></pre><p><code>AFSSLPinningModeCertificate</code> 比较安全，也就是我们上面<code>NSURLSession</code>使用的验证方法。因為我们的证书是跟 <code>APP</code> 一起打包的，这也就代表说如果我们的证书过期了或是变动了，我们就得出一版新的 <code>APP</code> 而且旧版 <code>APP</code> 的证书就失效了。我们也可以在每次 <code>APP</code> 启动时，就自动连到某个服务器下载最新的证书，不过此时這个下载就会是有风险的。<br><code>AFSSLPinningModePublicKey</code> 则是只有比对证书里的 <code>public key</code>，所以即使服务器证书有所变动，只要 <code>public key</code> 不变，就能通过验证。<br>所以如果你能确保每个使用者总是使用最新版本的 <code>APP</code>（例如是公司企业內部专用的），那就可以考虑 <code>AFSSLPinningModeCertificate</code>，否则的话选择 <code>AFSSLPinningModePublicKey</code> 是更加良好的解决方案，末尾我会贴一下AFN是如何实现的。</p>
+<pre><code>//是否允许无效证书（也就是自建的证书）默认为NO  如果是需要验证自建证书 需要设置为YES
+securityPolicy.allowInvalidCertificates = NO;
+</code></pre><p>验证域名，默认为<code>YES</code>。如置为<code>NO</code>，建议自己添加对应域名的校验逻辑。<br>假如证书的域名与你请求的域名不一致，需把该项设置为<code>NO</code>。即服务器使用其他可信任机构颁发的证书，也可以建立连接。主要用于这种情况：客户端请求的是子域名，而证书上的是另外一个域名。因为<code>SSL</code>证书上的域名是独立的，假如证书上注册的域名是<code>www.google.com</code>，那么<code>mail.google.com</code>是无法验证通过的。当然，有钱可以注册通配符的域名<code>*.google.com</code>，但这个还是比较贵的。</p>
+<pre><code>是否需要验证域名
+securityPolicy.validatesDomainName = YES;
+</code></pre><p>###设置验证策略<br>拿到网络请求的<code>AFHTTPSessionManager</code>类型的<code>manager</code></p>
+<pre><code>//策略加入证书
+[securityPolicy setPinnedCertificates:set];
+//网络请求加入策略
+[manager setSecurityPolicy:securityPolicy];
+</code></pre><p>就此完工。</p>
+<p>##几个需要注意的地方<br>1.</p>
+<pre><code>CFArrayRef policiesRef;
+SecTrustCopyPolicies(trust, &amp;policiesRef);
+可以看到默认加入了 域名验证
+NSLog(@&quot;%@&quot;,policiesRef);
+打印 policiesRef 后，你会发现默认的验证策略就包含了域名验证，即“服务器证书上的域名和请求域名是否匹配”。如果你的一个证书需要用来连接不同域名的主机，或者你直接用 IP 地址去连接，那么你可以重设验证策略以忽略域名验证:
+NSMutableArray *policies = [NSMutableArray array];
+BasicX509 不验证域名是否相同
+SecPolicyRef policy = SecPolicyCreateBasicX509();
+[policies addObject:(__bridge_transfer id)policy];
+修改trust中的验证策略
+SecTrustSetPolicies(trust, (__bridge CFArrayRef)policies);
+</code></pre><p>2.<br>见过不止一处地方提到这样的结论，我们来看一下。</p>
+<blockquote>
+<p>选择证书链的哪一节点作为锚点证书打包到App中？<br>很多开发者会直接选择叶子证书。其实对于自建证书来说，选择哪一节点都是可行的。而对于由CA颁发的证书，则建议导入颁发该证书的CA机构证书或者是更上一级CA机构的证书，甚至可以是根证书。这是因为：<br>1) 一般叶子证书的有效期都比较短，Google和Baidu官网证书的有效期也就几个月；而App由于是客户端，需要一定的向后兼容，稍疏于检查，今天发布，过两天证书就过期了。<br>2) 越往证书链的末端，证书越有可能变动；比如叶子证书由特定域名(aaa.bbb.com)改为通配域名(*.bbb.com)等等。短期内的变动，重新部署后，有可能旧版本App更新不及时而出现无法访问的问题。<br>因此使用CA机构证书是比较合适的，至于哪一级CA机构证书，并没有完全的定论，你可以自己评估选择。</p>
+</blockquote>
+<p>这里如果你打包的是比较上级的CA根证书，是解决了过期问题，那么你觉得这个根证书可能只给你一家公司签名吗？如果被有心之人签下来另一个证书，岂不是成了合法的中间人。那么这个TLS证书验证的意义又何在呢？</p>
+<p>对于这个问题很多大神也给出过合理的思路：</p>
+<ol>
+<li>下载更新证书，会涉及到很多处理细节，比如长时间没上线证书处于更替间隙等。</li>
+<li>在即将证书更替时，将新的证书一同打包发版。</li>
+<li><p><code>AFN</code>的<code>AFSSLPinningModePublicKey</code>只是公钥对比并不是整个证书信息对比的思路也不错。续签证书时候用同样的<code>CSR</code>就可以保证公私钥不变。</p>
+</li>
+<li><p><code>AFN</code>的<code>AFSSLPinningModePublicKey</code>公钥验证策略是如何实现的？<br><code>AFN</code>源码</p>
+</li>
+</ol>
+<p><img src="https://ws4.sinaimg.cn/large/006tKfTcgy1g06225rwqmj30wi0hbdk7.jpg" alt=""><br>在代理回调中我们看到关键验证方法中关于公钥验证的处理</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tKfTcgy1g062f98xl0j30oa08t40i.jpg" alt=""></p>
+<p>获取服务器所返回证书链的公钥<br><img src="https://ws2.sinaimg.cn/large/006tKfTcgy1g0626co4jej30rc0kc78a.jpg" alt=""></p>
+<p>我们设置的锚点证书公钥<br><img src="https://ws2.sinaimg.cn/large/006tKfTcgy1g062cdmmy2j30ux0antay.jpg" alt=""></p>
+<p>##备注</p>
+<pre><code>NSURLAuthenticationChallenge
+
+- (NSURLProtectionSpace *)protectionSpace; // 这个函数返回一个类NSURLProtectionSpace，类中描述服务器中希望的认证方式以及协议，主机端口号等信息。
+- (NSURLCredential *)proposedCredential; // 建议使用的证书
+- (NSInteger)previousFailureCount; // 用户密码输入失败的次数。
+- (NSURLResponse *)failureResponse; // 授权失败的响应头的详细信息
+- (NSError *)error; // 最后一次授权失败的错误信息
+</code></pre><pre><code>NSURLProtectionSpace
+
+- (NSString *)realm; // 用于定义保护的区域,在服务端可以通过 realm 将不同的资源分成不同的域，域的名称即为 realm 的值，每个域可能会有自己的权限鉴别方案。
+- (BOOL)receivesCredentialSecurely; // 这个空间内的证书是否能够安全的发送
+- (BOOL)isProxy; // 代理授权
+- (NSString *)host; // 服务端主机地址，如果是代理则代理服务器地址
+- (NSInteger)port; // 服务端端口地址，如果是代理则代理服务器的端口
+- (NSString *)proxyType; // 代理类型，只对代理授权，比如http代理，socket代理等。
+- (NSString *)protocol; // 使用的协议，比如http,https, ftp等，
+- (NSString *)authenticationMethod; // 指定授权方式，比如401，客户端认证，服务端信任，代理等。
+- (NSArray *)distinguishedNames; // 可接受的颁发机关客户端证书身份验证
+- (SecTrustRef)serverTrust; // 用于服务端信任，指定一个信任对象,可以用这个对象来建立一个凭证。
+</code></pre><pre><code>NSURLProtectionSpace
+
+NSURLProtectionSpaceHTTP // http协议
+NSURLProtectionSpaceHTTPS // https协议
+NSURLProtectionSpaceFTP // ftp协议
+NSURLProtectionSpaceHTTPProxy // http代理
+NSURLProtectionSpaceHTTPSProxy // https代理
+NSURLProtectionSpaceFTPProxy // ftp代理
+NSURLProtectionSpaceSOCKSProxy // socks代理
+NSURLAuthenticationMethodDefault // 协议的默认身份认证
+NSURLAuthenticationMethodHTTPBasic // http的basic认证,等同于NSURLAuthenticationMethodDefault
+NSURLAuthenticationMethodHTTPDigest // http的摘要认证
+NSURLAuthenticationMethodHTMLForm // html的表单认证
+适用于任何协议
+NSURLAuthenticationMethodNTLM // NTLM认证
+NSURLAuthenticationMethodNegotiate // Negotiate认证
+NSURLAuthenticationMethodClientCertificate // ssl证书认证,适用于任何协议
+NSURLAuthenticationMethodServerTrust // ServerTrust认证,适用于任何协议
+</code></pre><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://developer.apple.com/library/archive/documentation/NetworkingInternet/Conceptual/NetworkingTopics/Articles/OverridingSSLChainValidationCorrectly.html" target="_blank" rel="noopener">Overriding TLS Chain Validation Correctly</a>。</p>
+<p><a href="https://www.jianshu.com/p/31bcddf44b8d" target="_blank" rel="noopener">iOS 中对 HTTPS 证书链的验证</a></p>
+<p><a href="http://nelson.logdown.com/posts/2015/04/29/how-to-properly-setup-afnetworking-security-connection/" target="_blank" rel="noopener">如何正確設定 AFNetworking 的安全連線</a></p>
+<p><a href="https://www.jianshu.com/p/88336eab2b8d" target="_blank" rel="noopener">iOS中HTTP/HTTPS授权访问一</a></p>
+<p><a href="https://www.jianshu.com/p/ebee00c785bd" target="_blank" rel="noopener">iOS中HTTP/HTTPS授权访问二</a></p>
 
         
     
@@ -564,7 +684,7 @@
             admin: ['xiaoLit'],
             // facebook-like distraction free mode
             distractionFreeMode: false,
-            id: 'Bugly的日常'
+            id: 'iOS如何在HTTPS中使用TLS证书验证'
         })
    gitalk.render('gitalk-container')
 </script>
@@ -585,21 +705,13 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2018/11/29/InjectionIII/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            Newer
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/2018/11/21/MAC-AND-GFW/" id="post_nav-older" class="next-content">
+        <a href="/2019/02/01/X-509certificate/" id="post_nav-older" class="next-content">
             Older
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
